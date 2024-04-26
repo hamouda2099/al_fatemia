@@ -2,10 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:hovering/hovering.dart';
 import '../components/app_bar.dart';
 import '../components/app_bar_hover_button.dart';
-import '../components/fade_image.dart';
 import '../components/footer.dart';
 import '../config/constants.dart';
 import '../config/navigator.dart';
@@ -128,12 +126,12 @@ class ContactUsScreen extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(height: 30,),
+                        const SizedBox(height: 30,),
                       ],
                     ),
                   ),
                   const Footer(),
-                  SizedBox(height: 50,),
+                  const SizedBox(height: 50,),
                 ],
               ),
             ),
