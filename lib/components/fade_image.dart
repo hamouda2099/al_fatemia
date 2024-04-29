@@ -24,15 +24,15 @@ class FadeImage extends StatelessWidget {
         secondChild: Container(
           width: screenWidth / 5,
           height: screenHeight / 1.5,
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
               image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage("assets/images/male-worker-factory.jpg"))),
+                  image: AssetImage(assetImageUrl ?? '-'))),
           child: Container(
             width: screenWidth / 5,
             height: screenHeight / 1.5,
             color: kPrimaryColor.withOpacity(0.5),
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             alignment: Alignment.center,
             child: Text(
               title ?? "-",

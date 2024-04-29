@@ -88,7 +88,9 @@ class ContactUsScreen extends StatelessWidget {
                                   ),
                                   child: const TextField(
                                     decoration: InputDecoration(
-                                      hintText: "Subject"
+                                      hintText: "Subject",
+                                      border: InputBorder.none,
+
                                     ),
                                   ),
                                 ),
@@ -102,7 +104,8 @@ class ContactUsScreen extends StatelessWidget {
                                   child: const TextField(
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                        hintText: "Body"
+                                        hintText: "Body",
+                                        border: InputBorder.none,
                                     ),
                                   ),
                                 ),

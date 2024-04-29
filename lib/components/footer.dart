@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:alfatemia_engines/config/constants.dart';
+import 'package:alfatemia_engines/config/navigator.dart';
+import 'package:alfatemia_engines/pages/contact_us_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,26 +35,26 @@ class Footer extends StatelessWidget {
                 image: AssetImage("assets/images/logo.png")),
             SizedBox(
               width: screenWidth/5,
-              child: const Column(
+              child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Head Office",style: TextStyle(
+                  Text("Head Office".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold
                   ),),
-                  SizedBox(height: 10,),
-                  Text("16 Masr and Sudan Street, 2nd Industrial Zone, 10th of Ramadan City, Egypt",style: TextStyle(
+                  const SizedBox(height: 10,),
+                  Text("16 Masr and Sudan Street, 2nd Industrial Zone, 10th of Ramadan City, Egypt".tr(),style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                   ),),
-                  SizedBox(height: 10,),
-                  Text("+20 101 516 9363",style: TextStyle(
+                  const SizedBox(height: 10,),
+                  Text("+20 101 516 9363".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
-                  SizedBox(height: 10,),
-                  Text("alfatemiaengines@gmail.com",style: TextStyle(
+                  const SizedBox(height: 10,),
+                  Text("alfatemiaengines@gmail.com".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
@@ -61,26 +63,26 @@ class Footer extends StatelessWidget {
             ),
             SizedBox(
               width: screenWidth/6,
-              child: const Column(
+              child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Socials",style: TextStyle(
+                  Text("Socials".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold
                   ),),
-                  SizedBox(height: 10,),
-                  Text("Facebook",style: TextStyle(
+                  const SizedBox(height: 10,),
+                  Text("Facebook".tr(),style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                   ),),
-                  SizedBox(height: 10,),
-                  Text("Instagram",style: TextStyle(
+                  const SizedBox(height: 10,),
+                  Text("Instagram".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
-                  SizedBox(height: 10,),
-                  Text("Tiktok",style: TextStyle(
+                  const SizedBox(height: 10,),
+                  Text("Tiktok".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
@@ -89,16 +91,16 @@ class Footer extends StatelessWidget {
             ),
             SizedBox(
               width: screenWidth/6,
-              child: const Column(
+              child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Inquiries",style: TextStyle(
+                  Text("Inquiries".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold
                   ),),
-                  SizedBox(height: 10,),
-                  Text("For any inquiries, questions or commendations, please call: +2 010 1516 9363",style: TextStyle(
+                  const SizedBox(height: 10,),
+                  Text("For any inquiries, questions or commendations, please call: +2 010 1516 9363".tr(),style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                   ),),
@@ -109,7 +111,12 @@ class Footer extends StatelessWidget {
             CustomHoverButton(
                 title: "Contact Us".tr(),
                 height: 60,
-                function: () {},
+                function: () {
+                  navigator(
+                    context: context,
+                    route: ContactUsScreen.id
+                  );
+                },
                 color: kPrimaryColor,
                 hoverTextColor: Colors.black,
                 hoverColor: Colors.white)

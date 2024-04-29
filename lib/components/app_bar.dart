@@ -28,7 +28,7 @@ class CustomAppBar extends StatelessWidget {
           width: (screenWidth / 2) + 2,
           height: 80,
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withOpacity(0.5),
             border: Border.all(color: kPrimaryColor, width: 1),
           ),
           child: Row(

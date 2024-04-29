@@ -1,3 +1,4 @@
+import 'package:alfatemia_engines/pages/contact_us_page.dart';
 import 'package:alfatemia_engines/pages/products_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,12 @@ class HomeScreen extends StatelessWidget {
                                     title: "Contact Us".tr(),
                                     borderColor: Colors.white,
                                     height: 60,
-                                    function: () {},
+                                    function: () {
+                                      navigator(
+                                        context:context,
+                                        route: ContactUsScreen.id
+                                      );
+                                    },
                                     color: Colors.transparent,
                                     hoverTextColor: Colors.black,
                                     hoverColor: Colors.white),
@@ -115,7 +121,12 @@ class HomeScreen extends StatelessWidget {
                                 CustomHoverButton(
                                     title: "Lets Go".tr(),
                                     height: 60,
-                                    function: () {},
+                                    function: () {
+                                      scrollController.animateTo(
+                                          1000,
+                                          duration: const Duration(
+                                              seconds: 1),
+                                          curve: Curves.ease);                                    },
                                     color: kPrimaryColor,
                                     hoverTextColor: Colors.black,
                                     hoverColor: Colors.white)
@@ -164,10 +175,11 @@ class HomeScreen extends StatelessWidget {
                                     height: 60,
                                     borderColor: kPrimaryColor,
                                     function: () {
-                                      navigator(
-                                          context: context,
-                                          route: ProductsScreen.id
-                                      );
+                                      scrollController.animateTo(
+                                          5250,
+                                          duration: const Duration(
+                                              seconds: 1),
+                                          curve: Curves.ease);
                                     },
                                     color: kPrimaryColor,
                                     hoverTextColor: kPrimaryColor,
@@ -182,8 +194,11 @@ class HomeScreen extends StatelessWidget {
                                 Container(
                                   width: screenWidth / 2,
                                   height: screenHeight / 1.2,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.3),
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: AssetImage("assets/images/stand_motor_1.png")
+                                    )
                                   ),
                                 ),
                                 Expanded(
@@ -238,8 +253,11 @@ class HomeScreen extends StatelessWidget {
                                 Container(
                                   width: screenWidth / 2,
                                   height: screenHeight / 1.2,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.3),
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage("assets/images/hood_motor_1.png")
+                                      )
                                   ),
                                 ),
                               ],
@@ -252,8 +270,11 @@ class HomeScreen extends StatelessWidget {
                                 Container(
                                   width: screenWidth / 2,
                                   height: screenHeight / 1.2,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.3),
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage("assets/images/ceiling_motor_1.png")
+                                      )
                                   ),
                                 ),
                                 Expanded(
@@ -308,8 +329,11 @@ class HomeScreen extends StatelessWidget {
                                 Container(
                                   width: screenWidth / 2,
                                   height: screenHeight / 1.2,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.3),
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage("assets/images/blinder_motor_1.png")
+                                      )
                                   ),
                                 ),
                               ],
@@ -400,23 +424,23 @@ class HomeScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 FadeImage(
-                                  title: "Item",
-                                  assetImageUrl: "assets/images/male-worker-factory.jpg",
+                                  title: "Stand Motor (S01)".tr(),
+                                  assetImageUrl: "assets/images/stand_motor_1.png",
                                 ),
                                 const SizedBox(width: 10,),
                                 FadeImage(
-                                  title: "Item",
-                                  assetImageUrl: "assets/images/male-worker-factory.jpg",
+                                  title: "Hood Motor (H01)".tr(),
+                                  assetImageUrl: "assets/images/hood_motor_1.png",
                                 ),
                                 const SizedBox(width: 10,),
                                 FadeImage(
-                                  title: "Item",
-                                  assetImageUrl: "assets/images/male-worker-factory.jpg",
+                                  title: "Ceiling Motor(C01)".tr(),
+                                  assetImageUrl: "assets/images/ceiling_motor_1.png",
                                 ),
                                 const SizedBox(width: 10,),
                                 FadeImage(
-                                  title: "Item",
-                                  assetImageUrl: "assets/images/male-worker-factory.jpg",
+                                  title: "Blinder Motor (B02)".tr(),
+                                  assetImageUrl: "assets/images/blinder_motor_1.png",
                                 ),
                               ],
                             ),
