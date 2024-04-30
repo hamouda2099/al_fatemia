@@ -7,6 +7,7 @@ import '../components/fade_image.dart';
 import '../components/footer.dart';
 import '../config/constants.dart';
 import '../config/navigator.dart';
+import '../mobile_view/about.dart';
 
 class AboutUsScreen extends StatelessWidget {
   static const String id = '/about';
@@ -34,7 +35,7 @@ class AboutUsScreen extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Stack(
+          body: mobileView ? AboutMobile() : Stack(
             children: [
               Container(
                 width: screenWidth,
@@ -42,7 +43,7 @@ class AboutUsScreen extends StatelessWidget {
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage("assets/images/male-worker-factory.jpg"),
+                    image: AssetImage("assets/images/products_back.png"),
                   ),
                 ),
                 child: Container(
@@ -65,7 +66,7 @@ class AboutUsScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: screenWidth,
-                            height: screenHeight / 1.5,
+                            height: screenHeight,
                             padding: const EdgeInsets.only(left: 80, right: 80),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

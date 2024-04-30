@@ -1,3 +1,4 @@
+import 'package:alfatemia_engines/mobile_view/products.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
@@ -34,7 +35,7 @@ class ProductsScreen extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Stack(
+          body: mobileView ? ProductsMobile() : Stack(
             children: [
               Container(
                 width: screenWidth,

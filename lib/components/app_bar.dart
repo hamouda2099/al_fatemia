@@ -11,97 +11,244 @@ import '../config/constants.dart';
 import 'app_bar_hover_button.dart';
 
 class CustomAppBar extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(
-          "assets/images/logo.png",
-          width: 100,
-          height: 100,
-        ),
-        SizedBox(
-          width: screenWidth / 5,
-        ),
-        Container(
-          width: (screenWidth / 2) + 2,
-          height: 80,
-          decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.5),
-            border: Border.all(color: kPrimaryColor, width: 1),
-          ),
-          child: Row(
+    return mobileView
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomHoverButton(
-                title: "Home".tr(),
-                color: Colors.transparent,
-                hoverColor: Colors.white,
-                function: () {
-                  navigator(
-                    context: context,
-                    route: HomeScreen.id
-                  );
-                },
+              Image.asset(
+                "assets/images/logo.png",
+                width: 50,
+                height: 50,
               ),
               CustomHoverButton(
-                title: "Products".tr(),
+                title: "≡".tr(),
+                width: 50,
+                height: 50,
                 color: Colors.transparent,
                 hoverColor: Colors.white,
                 function: () {
-                  navigator(
-                      context: context,
-                      route: ProductsScreen.id
-                  );
-                },
-              ),
-              CustomHoverButton(
-                title: "About Us".tr(),
-                color: Colors.transparent,
-                hoverColor: Colors.white,
-                function: () {
-                  navigator(
-                      context: context,
-                      route: AboutUsScreen.id
-                  );
-                },
-              ),
-              CustomHoverButton(
-                title: "Contact Us".tr(),
-                color: Colors.transparent,
-                hoverColor: Colors.white,
-                function: () {
-                  navigator(
-                      context: context,
-                      route: ContactUsScreen.id
-                  );
+                  menu(context);
                 },
               ),
             ],
-          ),
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-        CustomHoverButton(
-            title: localLanguage == "en"? "العربيه": "English",
-            function: () {
-              if (localLanguage == 'en') {
-                localLanguage = 'ar';
-                context.setLocale(const Locale('ar'));
-                textDirection = ui.TextDirection.rtl;
-              } else {
-                localLanguage = 'en';
-                context.setLocale(const Locale('en'));
-                textDirection = ui.TextDirection.ltr;
-              }
-            },            color: kPrimaryColor,
-            hoverFontWeight: FontWeight.bold,
-            hoverTextColor: Colors.black,
-            hoverColor: Colors.white),
-
-      ],
-    );
+          )
+        : Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/logo.png",
+                width: 100,
+                height: 100,
+              ),
+              SizedBox(
+                width: screenWidth / 5,
+              ),
+              Container(
+                width: (screenWidth / 2) + 2,
+                height: 80,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  border: Border.all(color: kPrimaryColor, width: 1),
+                ),
+                child: Row(
+                  children: [
+                    CustomHoverButton(
+                      title: "Home".tr(),
+                      color: Colors.transparent,
+                      hoverColor: Colors.white,
+                      function: () {
+                        navigator(context: context, route: HomeScreen.id);
+                      },
+                    ),
+                    CustomHoverButton(
+                      title: "Products".tr(),
+                      color: Colors.transparent,
+                      hoverColor: Colors.white,
+                      function: () {
+                        navigator(context: context, route: ProductsScreen.id);
+                      },
+                    ),
+                    CustomHoverButton(
+                      title: "About Us".tr(),
+                      color: Colors.transparent,
+                      hoverColor: Colors.white,
+                      function: () {
+                        navigator(context: context, route: AboutUsScreen.id);
+                      },
+                    ),
+                    CustomHoverButton(
+                      title: "Contact Us".tr(),
+                      color: Colors.transparent,
+                      hoverColor: Colors.white,
+                      function: () {
+                        navigator(context: context, route: ContactUsScreen.id);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              CustomHoverButton(
+                  title: localLanguage == "en" ? "العربيه" : "English",
+                  function: () {
+                    if (localLanguage == 'en') {
+                      localLanguage = 'ar';
+                      context.setLocale(const Locale('ar'));
+                      textDirection = ui.TextDirection.rtl;
+                    } else {
+                      localLanguage = 'en';
+                      context.setLocale(const Locale('en'));
+                      textDirection = ui.TextDirection.ltr;
+                    }
+                  },
+                  color: kPrimaryColor,
+                  hoverFontWeight: FontWeight.bold,
+                  hoverTextColor: Colors.black,
+                  hoverColor: Colors.white),
+            ],
+          );
   }
+}
+
+void menu(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return Scaffold(
+          backgroundColor: Colors.white.withOpacity(0.7),
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                InkWell(
+                  onTap: () {
+                    navigator(context: context, route: HomeScreen.id);
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Home".tr(),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      const Divider(
+                        height: 20,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    navigator(context: context, route: ProductsScreen.id);
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Products".tr(),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      const Divider(
+                        height: 20,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    navigator(context: context, route: AboutUsScreen.id);
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: [
+                      Text(
+                        "About Us".tr(),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      const Divider(
+                        height: 20,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    navigator(context: context, route: ContactUsScreen.id);
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: [
+                      Text(
+                        "Contact Us".tr(),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      const Divider(
+                        height: 20,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    if (localLanguage == 'en') {
+                      localLanguage = 'ar';
+                      context.setLocale(const Locale('ar'));
+                      textDirection = ui.TextDirection.rtl;
+                    } else {
+                      localLanguage = 'en';
+                      context.setLocale(const Locale('en'));
+                      textDirection = ui.TextDirection.ltr;
+                    }
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: [
+                      Text(
+                        localLanguage == "en" ? "العربيه" : "English",
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      const Divider(
+                        height: 20,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      });
 }

@@ -1,3 +1,4 @@
+import 'package:alfatemia_engines/mobile_view/contact.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class ContactUsScreen extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Stack(
+          body: mobileView ?  ContactMobile() : Stack(
             children: [
               Container(
                 width: screenWidth,

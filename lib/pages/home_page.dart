@@ -1,3 +1,4 @@
+import 'package:alfatemia_engines/mobile_view/home.dart';
 import 'package:alfatemia_engines/pages/contact_us_page.dart';
 import 'package:alfatemia_engines/pages/image_viewer_dialog.dart';
 import 'package:alfatemia_engines/pages/products_page.dart';
@@ -37,7 +38,7 @@ class HomeScreen extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Stack(
+          body: mobileView ? HomeMobile() : Stack(
             children: [
               Container(
                 width: screenWidth,
