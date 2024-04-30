@@ -41,7 +41,7 @@ class AboutMobile extends StatelessWidget {
                   children: [
                     Container(
                       width: screenWidth,
-                      height: screenHeight /5,
+                      height: screenHeight /4,
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +72,7 @@ class AboutMobile extends StatelessWidget {
                             width: screenWidth / 1.2,
                             child: Text(
                               "abstract".tr(),
-                              maxLines: 5,
+                              maxLines: 10,
                               textAlign: TextAlign.justify,
                               style: const TextStyle(
                                 fontSize: 14,

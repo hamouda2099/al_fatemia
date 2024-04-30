@@ -44,8 +44,7 @@ class HomeMobile extends StatelessWidget {
                 ),
                 Container(
                   width: screenWidth,
-                  height: screenHeight / 4,
-                  padding: const EdgeInsets.only(left: 80, right: 80),
+                  padding: const EdgeInsets.only(left: 30, right: 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +52,7 @@ class HomeMobile extends StatelessWidget {
                       Text(
                         "Al-Fatemia Engines".tr(),
                         style: const TextStyle(
-                            fontSize: 25,
+                            fontSize: 18,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
@@ -61,19 +60,19 @@ class HomeMobile extends StatelessWidget {
                         "The first and only supplier for engines in middle east."
                             .tr(),
                         style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 14,
                           color: Colors.white,
                         ),
                       ),
                       Text(
                         "Egyption Hands 100%".tr(),
                         style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 14,
                           color: Colors.white,
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -327,7 +326,7 @@ class HomeMobile extends StatelessWidget {
                   child: Container(
                     width: screenWidth,
                     height: screenHeight / 3,
-                    padding: const EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(10),
                     color: Colors.black.withOpacity(0.5),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -336,14 +335,14 @@ class HomeMobile extends StatelessWidget {
                         Text(
                           "About Us".tr(),
                           style: const TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
                           "The Trusted Supplier for engines".tr(),
                           style: const TextStyle(
-                            fontSize: 22,
+                            fontSize: 18,
                             color: Colors.white,
                           ),
                         ),
@@ -354,10 +353,10 @@ class HomeMobile extends StatelessWidget {
                           width: screenWidth / 1.2,
                           child: Text(
                             "abstract".tr(),
-                            maxLines: 5,
+                            maxLines: 10,
                             textAlign: TextAlign.justify,
                             style: const TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
                               color: Colors.white,
                             ),
                           ),
@@ -374,7 +373,7 @@ class HomeMobile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(
-                        height: 30,
+                        height: 15,
                       ),
                       Text(
                         "Our Products".tr(),
@@ -389,7 +388,7 @@ class HomeMobile extends StatelessWidget {
                       Text(
                         "Explore our engines power.".tr(),
                         style: const TextStyle(
-                            color: kPrimaryColor, fontSize: 22),
+                            color: kPrimaryColor, fontSize: 20),
                       ),
                       const SizedBox(
                         height: 10,
@@ -433,14 +432,14 @@ class HomeMobile extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(
-                        height: 80,
+                        height: 50,
                       ),
                       Text(
                         "Our Companies".tr(),
                         style: const TextStyle(
                             color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20),
+                            fontSize: 18),
                       ),
                       Row(
                         children: [
@@ -454,7 +453,7 @@ class HomeMobile extends StatelessWidget {
                                         color: Colors.black, fontSize: 20),
                                   ),
                                   const SizedBox(
-                                    height: 20,
+                                    height: 10,
                                   ),
                                   Text(
                                     "El-Ulaa Plus for Wholesale Products Trading"

@@ -31,7 +31,7 @@ class Footer extends StatelessWidget {
                 height: 100,
                 image: AssetImage("assets/images/logo.png")),
             SizedBox(
-              width: screenWidth/1.5,
+              width: screenWidth/1.2,
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -61,7 +61,7 @@ class Footer extends StatelessWidget {
             SizedBox(height: 10,),
 
             SizedBox(
-              width: screenWidth/1.5,
+              width: screenWidth/1.2,
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -112,7 +112,7 @@ class Footer extends StatelessWidget {
             SizedBox(height: 10,),
 
             SizedBox(
-              width: screenWidth/1.5,
+              width: screenWidth/1.2,
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -131,7 +131,7 @@ class Footer extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             CustomHoverButton(
                 title: "Contact Us".tr(),
                 height: 40,

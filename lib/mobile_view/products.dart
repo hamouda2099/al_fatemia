@@ -37,7 +37,7 @@ class ProductsMobile extends StatelessWidget {
                   child: CustomAppBar(),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(50.0),
+                  padding: const EdgeInsets.all(30.0),
                   child: Column(
                     children: [
                       Row(
@@ -82,7 +82,7 @@ class ProductsMobile extends StatelessWidget {
                           ),
                           const Padding(
                             padding: EdgeInsets.only(
-                                left: 30.0, right: 30, top: 20),
+                                left: 10.0, right: 10, top: 20),
                             child: Text(
                               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
                               maxLines: 5,
@@ -110,11 +110,11 @@ class ProductsMobile extends StatelessWidget {
                           Text(
                             "Hood Motors".tr(),
                             style: const TextStyle(
-                                color: Colors.white, fontSize: 30),
+                                color: Colors.white, fontSize: 20),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(
-                                left: 80.0, right: 80, top: 20),
+                                left: 10.0, right: 10, top: 20),
                             child: Text(
                               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
                               maxLines: 5,
@@ -142,11 +142,11 @@ class ProductsMobile extends StatelessWidget {
                           Text(
                             "Ceiling Motors".tr(),
                             style: const TextStyle(
-                                color: Colors.white, fontSize: 30),
+                                color: Colors.white, fontSize: 20),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(
-                                left: 80.0, right: 80, top: 20),
+                                left: 10.0, right: 10, top: 20),
                             child: Text(
                               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
                               maxLines: 5,
@@ -174,11 +174,11 @@ class ProductsMobile extends StatelessWidget {
                           Text(
                             "Blender Motors".tr(),
                             style: const TextStyle(
-                                color: Colors.white, fontSize: 30),
+                                color: Colors.white, fontSize: 20),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(
-                                left: 80.0, right: 80, top: 20),
+                                left: 10.0, right: 10, top: 20),
                             child: Text(
                               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
                               maxLines: 5,

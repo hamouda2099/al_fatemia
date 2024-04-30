@@ -119,7 +119,7 @@ void menu(BuildContext context) {
       context: context,
       builder: (context) {
         return Scaffold(
-          backgroundColor: Colors.white.withOpacity(0.7),
+          backgroundColor: Colors.white.withOpacity(0.8),
           body: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
