@@ -34,79 +34,98 @@ class AboutUsScreen extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Scrollbar(
-            controller: scrollController,
-            child: SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: CustomAppBar(),
+          body: Stack(
+            children: [
+              Container(
+                width: screenWidth,
+                height: screenHeight * 1.1,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/male-worker-factory.jpg"),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(50.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
+                ),
+                child: Container(
+                  width: screenWidth,
+                  height: screenHeight,
+                  color: Colors.black.withOpacity(0.5),
+                ),
+              ),
+              Scrollbar(
+                controller: scrollController,
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: CustomAppBar(),
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: screenWidth,
+                            height: screenHeight / 1.5,
+                            padding: const EdgeInsets.only(left: 80, right: 80),
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   "About Us".tr(),
                                   style: const TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
                                 Text(
                                   "Your Trusted Supplier for Engines".tr(),
                                   style: const TextStyle(
-                                      color: kPrimaryColor, fontSize: 45),
+                                      color: Colors.white, fontSize: 45),
                                 ),
                               ],
                             ),
-                          ],
-                        ),
-                        SizedBox(height: 30,),
-                        Container(
-                          width: screenWidth,
-                          height: screenHeight / 1.5,
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      "assets/images/male-worker-factory.jpg"))),
-                        ),
-                        const SizedBox(
-                          height: 80,
-                        ),
-                        SizedBox(
-                          width: screenWidth / 2,
-                          child: Text(
-                            "Al Fatmiya Engines is the leading engine supplier in the Middle East and has a proud history of delivering excellence since its inception. We are committed to providing superior quality engine products and services, backed by our unwavering commitment to customer satisfaction and industry expertise."
-                                .tr(),
-                            maxLines: 5,
-                            textAlign: TextAlign.justify,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                            ),
                           ),
-                        ),
+                          Container(
+                            color: Colors.white,
+                            width: screenWidth,
+                            child: Column(
+                              children: [
+                                SizedBox(height: 30,),
+                                const SizedBox(
+                                  height: 80,
+                                ),
+                                SizedBox(
+                                  width: screenWidth / 1.5,
+                                  child: Text(
+                                    "abstract".tr(),
+                                    maxLines: 5,
+                                    textAlign: TextAlign.justify,
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
 
-                        const SizedBox(
-                          height: 80,
-                        ),
-                      ],
-                    ),
+                                const SizedBox(
+                                  height: 80,
+                                ),
+                                 Footer(),
+                                const SizedBox(
+                                  height: 80,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+
+                    ],
                   ),
-                  const Footer()
-                ],
-              ),
-            ),
+                ),
+              )
+            ],
           )),
     );
   }

@@ -1,17 +1,13 @@
-import 'dart:ui';
-
 import 'package:alfatemia_engines/config/constants.dart';
 import 'package:alfatemia_engines/config/navigator.dart';
 import 'package:alfatemia_engines/pages/contact_us_page.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'app_bar_hover_button.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({super.key});
-
   @override
   Widget build(BuildContext context) {
     return  Column(
@@ -72,20 +68,41 @@ class Footer extends StatelessWidget {
                     fontWeight: FontWeight.bold
                   ),),
                   const SizedBox(height: 10,),
-                  Text("Facebook".tr(),style: const TextStyle(
+                  InkWell(
+                    onTap: () async{
+                      await launchUrl(
+                      Uri.parse("https://www.facebook.com/alfatemiaengines.eg"),
+                      );
+                    },
+                    child: Text("Facebook".tr(),style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                    ),),
+                  ),
+                  const SizedBox(height: 10,),
+                  InkWell(
+                    onTap: () async{
+                      await launchUrl(
+                      Uri.parse("https://www.instagram.com/al_fatemia_engines/?next=%2F"),
+                      );
+                    },
+                    child: Text("Instagram".tr(),style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
-                  ),),
+                    ),),
+                  ),
                   const SizedBox(height: 10,),
-                  Text("Instagram".tr(),style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),),
-                  const SizedBox(height: 10,),
-                  Text("Tiktok".tr(),style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),),
+                  InkWell(
+                    onTap: ()async{
+                      await launchUrl(
+                      Uri.parse("https://www.tiktok.com/@al.fatemia.engine?_t=8liNT51oDDC&_r=1"),
+                      );
+                    },
+                    child: Text("Tiktok".tr(),style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                    ),),
+                  ),
                 ],
               ),
             ),
@@ -100,7 +117,8 @@ class Footer extends StatelessWidget {
                     fontWeight: FontWeight.bold
                   ),),
                   const SizedBox(height: 10,),
-                  Text("For any inquiries, questions or commendations, please call: +2 010 1516 9363".tr(),style: const TextStyle(
+                  Text("For any inquiries, questions or commendations, please call: +2 010 1516 9363".tr()
+                    ,style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                   ),),

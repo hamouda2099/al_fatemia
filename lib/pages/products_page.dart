@@ -34,202 +34,217 @@ class ProductsScreen extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Scrollbar(
-            controller: scrollController,
-            child: SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: CustomAppBar(),
+          body: Stack(
+            children: [
+              Container(
+                width: screenWidth,
+                height: screenHeight * 1.1,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/products_back.png"),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(50.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "The Future with Al-Fatemia".tr(),
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                ),
-                                Text(
-                                  "Your Trusted Supplier for Engines".tr(),
-                                  style: const TextStyle(
-                                      color: kPrimaryColor, fontSize: 45),
-                                ),
-                                SizedBox(
-                                  width: screenWidth / 1.5,
-                                  child: const Text(
-                                    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                    maxLines: 5,
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              width: screenWidth / 2,
-                              height: screenHeight / 1.2,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.3),
-                              ),
-                            ),
-                            Expanded(
-                                child: Column(
-                              children: [
-                                Text(
-                                  "Stand Motors".tr(),
-                                  style: const TextStyle(
-                                      color: Colors.black, fontSize: 30),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 80.0, right: 80, top: 20),
-                                  child: Text(
-                                    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                    maxLines: 5,
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                  ),
-                                ),
-                              ],
-                            ))
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 80,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                                child: Column(
-                              children: [
-                                Text(
-                                  "Hood Motors".tr(),
-                                  style: const TextStyle(
-                                      color: Colors.black, fontSize: 30),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 80.0, right: 80, top: 20),
-                                  child: Text(
-                                    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                    maxLines: 5,
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                  ),
-                                ),
-                              ],
-                            )),
-                            Container(
-                              width: screenWidth / 2,
-                              height: screenHeight / 1.2,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.3),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 80,
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              width: screenWidth / 2,
-                              height: screenHeight / 1.2,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.3),
-                              ),
-                            ),
-                            Expanded(
-                                child: Column(
-                              children: [
-                                Text(
-                                  "Ceiling Motors".tr(),
-                                  style: const TextStyle(
-                                      color: Colors.black, fontSize: 30),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 80.0, right: 80, top: 20),
-                                  child: Text(
-                                    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                    maxLines: 5,
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                  ),
-                                ),
-                              ],
-                            ))
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 80,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                                child: Column(
-                              children: [
-                                Text(
-                                  "Blender Motors".tr(),
-                                  style: const TextStyle(
-                                      color: Colors.black, fontSize: 30),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 80.0, right: 80, top: 20),
-                                  child: Text(
-                                    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                    maxLines: 5,
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                  ),
-                                ),
-                              ],
-                            )),
-                            Container(
-                              width: screenWidth / 2,
-                              height: screenHeight / 1.2,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.3),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 80,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Footer()
-                ],
+                ),
+                child: Container(
+                  width: screenWidth,
+                  height: screenHeight,
+                  color: Colors.black.withOpacity(0.5),
+                ),
               ),
-            ),
+              Scrollbar(
+                controller: scrollController,
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: CustomAppBar(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(50.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Our Products".tr(),
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 30),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(
+                              height: 100,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width: screenWidth / 2,
+                                  height: screenHeight / 1.2,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage(
+                                              "assets/images/stand_motor_1.png"))),
+                                ),
+                                Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Stand Motors".tr(),
+                                          style: const TextStyle(
+                                              color: Colors.white, fontSize: 30),
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 80.0, right: 80, top: 20),
+                                          child: Text(
+                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                            maxLines: 5,
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                                color: Colors.white, fontSize: 16),
+                                          ),
+                                        ),
+                                      ],
+                                    ))
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 80,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Hood Motors".tr(),
+                                          style: const TextStyle(
+                                              color: Colors.white, fontSize: 30),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 80.0, right: 80, top: 20),
+                                          child: Text(
+                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                            maxLines: 5,
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                                color: Colors.white, fontSize: 16),
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+                                Container(
+                                  width: screenWidth / 2,
+                                  height: screenHeight / 1.2,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage(
+                                              "assets/images/hood_motor_1.png"))),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 80,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width: screenWidth / 2,
+                                  height: screenHeight / 1.2,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage(
+                                              "assets/images/ceiling_motor_1.png"))),
+                                ),
+                                Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Ceiling Motors".tr(),
+                                          style: const TextStyle(
+                                              color: Colors.white, fontSize: 30),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 80.0, right: 80, top: 20),
+                                          child: Text(
+                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                            maxLines: 5,
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                                color: Colors.white, fontSize: 16),
+                                          ),
+                                        ),
+                                      ],
+                                    ))
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 80,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Blender Motors".tr(),
+                                          style: const TextStyle(
+                                              color: Colors.white, fontSize: 30),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 80.0, right: 80, top: 20),
+                                          child: Text(
+                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                            maxLines: 5,
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                                color: Colors.white, fontSize: 16),
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+                                Container(
+                                  width: screenWidth / 2,
+                                  height: screenHeight / 1.2,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage(
+                                              "assets/images/blinder_motor_1.png"))),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 80,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
           )),
     );
   }

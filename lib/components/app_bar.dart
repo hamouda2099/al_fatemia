@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:alfatemia_engines/config/navigator.dart';
 import 'package:alfatemia_engines/pages/about_us_page.dart';
 import 'package:alfatemia_engines/pages/contact_us_page.dart';
@@ -84,12 +85,22 @@ class CustomAppBar extends StatelessWidget {
           width: 20,
         ),
         CustomHoverButton(
-            title: "Call Now".tr(),
-            function: () {},
-            color: kPrimaryColor,
+            title: localLanguage == "en"? "العربيه": "English",
+            function: () {
+              if (localLanguage == 'en') {
+                localLanguage = 'ar';
+                context.setLocale(const Locale('ar'));
+                textDirection = ui.TextDirection.rtl;
+              } else {
+                localLanguage = 'en';
+                context.setLocale(const Locale('en'));
+                textDirection = ui.TextDirection.ltr;
+              }
+            },            color: kPrimaryColor,
             hoverFontWeight: FontWeight.bold,
-            hoverTextColor: Colors.white,
-            hoverColor: kGreenColor)
+            hoverTextColor: Colors.black,
+            hoverColor: Colors.white),
+
       ],
     );
   }

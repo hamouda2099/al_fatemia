@@ -1,4 +1,5 @@
 import 'package:alfatemia_engines/pages/contact_us_page.dart';
+import 'package:alfatemia_engines/pages/image_viewer_dialog.dart';
 import 'package:alfatemia_engines/pages/products_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -108,9 +109,8 @@ class HomeScreen extends StatelessWidget {
                                     height: 60,
                                     function: () {
                                       navigator(
-                                        context:context,
-                                        route: ContactUsScreen.id
-                                      );
+                                          context: context,
+                                          route: ContactUsScreen.id);
                                     },
                                     color: Colors.transparent,
                                     hoverTextColor: Colors.black,
@@ -122,11 +122,10 @@ class HomeScreen extends StatelessWidget {
                                     title: "Lets Go".tr(),
                                     height: 60,
                                     function: () {
-                                      scrollController.animateTo(
-                                          1000,
-                                          duration: const Duration(
-                                              seconds: 1),
-                                          curve: Curves.ease);                                    },
+                                      scrollController.animateTo(1000,
+                                          duration: const Duration(seconds: 1),
+                                          curve: Curves.ease);
+                                    },
                                     color: kPrimaryColor,
                                     hoverTextColor: Colors.black,
                                     hoverColor: Colors.white)
@@ -175,10 +174,8 @@ class HomeScreen extends StatelessWidget {
                                     height: 60,
                                     borderColor: kPrimaryColor,
                                     function: () {
-                                      scrollController.animateTo(
-                                          5250,
-                                          duration: const Duration(
-                                              seconds: 1),
+                                      scrollController.animateTo(5250,
+                                          duration: const Duration(seconds: 1),
                                           curve: Curves.ease);
                                     },
                                     color: kPrimaryColor,
@@ -195,11 +192,10 @@ class HomeScreen extends StatelessWidget {
                                   width: screenWidth / 2,
                                   height: screenHeight / 1.2,
                                   decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      fit: BoxFit.contain,
-                                      image: AssetImage("assets/images/stand_motor_1.png")
-                                    )
-                                  ),
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage(
+                                              "assets/images/stand_motor_1.png"))),
                                 ),
                                 Expanded(
                                     child: Column(
@@ -208,6 +204,9 @@ class HomeScreen extends StatelessWidget {
                                       "Stand Motors".tr(),
                                       style: const TextStyle(
                                           color: Colors.black, fontSize: 30),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
                                     ),
                                     const Padding(
                                       padding: EdgeInsets.only(
@@ -256,9 +255,8 @@ class HomeScreen extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           fit: BoxFit.contain,
-                                          image: AssetImage("assets/images/hood_motor_1.png")
-                                      )
-                                  ),
+                                          image: AssetImage(
+                                              "assets/images/hood_motor_1.png"))),
                                 ),
                               ],
                             ),
@@ -273,9 +271,8 @@ class HomeScreen extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           fit: BoxFit.contain,
-                                          image: AssetImage("assets/images/ceiling_motor_1.png")
-                                      )
-                                  ),
+                                          image: AssetImage(
+                                              "assets/images/ceiling_motor_1.png"))),
                                 ),
                                 Expanded(
                                     child: Column(
@@ -332,9 +329,8 @@ class HomeScreen extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           fit: BoxFit.contain,
-                                          image: AssetImage("assets/images/blinder_motor_1.png")
-                                      )
-                                  ),
+                                          image: AssetImage(
+                                              "assets/images/blinder_motor_1.png"))),
                                 ),
                               ],
                             ),
@@ -351,12 +347,12 @@ class HomeScreen extends StatelessWidget {
                             image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: AssetImage(
-                                    "assets/images/male-worker-factory.jpg"))),
+                                    "assets/images/about_back.jpg"))),
                         child: Container(
                           width: screenWidth,
                           height: screenHeight / 1.5,
                           padding: const EdgeInsets.all(80),
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.black.withOpacity(0.5),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -375,11 +371,13 @@ class HomeScreen extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                               ),
+                              const SizedBox(
+                                height: 10,
+                              ),
                               SizedBox(
                                 width: screenWidth / 2,
                                 child: Text(
-                                  "Al Fatmiya Engines is the leading engine supplier in the Middle East and has a proud history of delivering excellence since its inception. We are committed to providing superior quality engine products and services, backed by our unwavering commitment to customer satisfaction and industry expertise."
-                                      .tr(),
+                                  "abstract".tr(),
                                   maxLines: 5,
                                   textAlign: TextAlign.justify,
                                   style: const TextStyle(
@@ -425,22 +423,32 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 FadeImage(
                                   title: "Stand Motor (S01)".tr(),
-                                  assetImageUrl: "assets/images/stand_motor_1.png",
+                                  assetImageUrl:
+                                      "assets/images/stand_motor_1.png",
                                 ),
-                                const SizedBox(width: 10,),
+                                const SizedBox(
+                                  width: 10,
+                                ),
                                 FadeImage(
                                   title: "Hood Motor (H01)".tr(),
-                                  assetImageUrl: "assets/images/hood_motor_1.png",
+                                  assetImageUrl:
+                                      "assets/images/hood_motor_1.png",
                                 ),
-                                const SizedBox(width: 10,),
+                                const SizedBox(
+                                  width: 10,
+                                ),
                                 FadeImage(
                                   title: "Ceiling Motor(C01)".tr(),
-                                  assetImageUrl: "assets/images/ceiling_motor_1.png",
+                                  assetImageUrl:
+                                      "assets/images/ceiling_motor_1.png",
                                 ),
-                                const SizedBox(width: 10,),
+                                const SizedBox(
+                                  width: 10,
+                                ),
                                 FadeImage(
                                   title: "Blinder Motor (B02)".tr(),
-                                  assetImageUrl: "assets/images/blinder_motor_1.png",
+                                  assetImageUrl:
+                                      "assets/images/blinder_motor_1.png",
                                 ),
                               ],
                             ),
@@ -458,32 +466,39 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "El-Ula Plass".tr(),
-                                          style: const TextStyle(
-                                              color: Colors.black, fontSize: 30),
-                                        ),
-                                        const SizedBox(height: 20,),
-                                        const Text(
-                                          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                          style: TextStyle(
-                                              color: Colors.black, fontSize: 16),
-                                        ),
-                                      ],
-                                    )),
-                                const SizedBox(width: 50,),
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "El-Ula Plass".tr(),
+                                      style: const TextStyle(
+                                          color: Colors.black, fontSize: 30),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "El-Ulaa Plus for Wholesale Products Trading"
+                                          .tr(),
+                                      style: const TextStyle(
+                                          color: Colors.black, fontSize: 20),
+                                    ),
+                                  ],
+                                )),
+                                const SizedBox(
+                                  width: 50,
+                                ),
                                 Container(
                                   width: screenWidth / 4,
                                   height: screenHeight / 2.2,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.3),
-                                  ),
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage(
+                                              "assets/images/ola_logo.jpg"))),
                                 ),
                               ],
                             ),
-                            const Footer()
+                             Footer()
                           ],
                         ),
                       ),

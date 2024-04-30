@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../components/app_bar.dart';
 import '../components/app_bar_hover_button.dart';
 import '../components/footer.dart';
@@ -11,6 +12,8 @@ import '../config/navigator.dart';
 class ContactUsScreen extends StatelessWidget {
   static const String id = '/contact';
   ScrollController scrollController = ScrollController();
+  TextEditingController subjCnt = TextEditingController();
+  TextEditingController bodyCnt = TextEditingController();
   @override
   Widget build(BuildContext context) {
     back() {
@@ -34,110 +37,130 @@ class ContactUsScreen extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Scrollbar(
-            controller: scrollController,
-            child: SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: CustomAppBar(),
+          body: Stack(
+            children: [
+              Container(
+                width: screenWidth,
+                height: screenHeight * 1.1,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/call_center.jpg"),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(50.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
+                ),
+                child: Container(
+                  width: screenWidth,
+                  height: screenHeight,
+                  color: Colors.black.withOpacity(0.5),
+                ),
+              ),
+              Scrollbar(
+                controller: scrollController,
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: CustomAppBar(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(50.0),
+                        child: SizedBox(
+                          width: screenWidth,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 50,),
+                              Container(
+                                color: Colors.white,
+                                padding: const EdgeInsets.all(10),
+                                child: Text(
                                   "Get in Touch".tr(),
                                   style: const TextStyle(
-                                      color: Colors.black,
+                                      color: kPrimaryColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
-                                Text(
-                                  "Have Any Questions ?".tr(),
-                                  style: const TextStyle(
-                                      color: kPrimaryColor, fontSize: 45),
-                                ),
-                                SizedBox(
-                                  width: screenWidth / 2,
-                                  child: Text(
-                                        "Feel free to reach out to us via the contact form below or give us a call at +20 10 1516 9363. We'd love to hear from you!".tr(),
-                                    textAlign: TextAlign.justify,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 30,),
-
-                                Container(
-                                  width: screenWidth/2,
-                                  padding: EdgeInsets.only(left: 10,right: 10),
-
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black,width: 0.5),
-                                  ),
-                                  child: const TextField(
-                                    decoration: InputDecoration(
-                                      hintText: "Subject",
-                                      border: InputBorder.none,
-
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 10,),
-                                Container(
-                                  padding: EdgeInsets.only(left: 10,right: 10),
-                                  width: screenWidth/2,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black,width: 0.5),
-                                  ),
-                                  child: const TextField(
-                                    maxLines: 5,
-                                    decoration: InputDecoration(
-                                        hintText: "Body",
-                                        border: InputBorder.none,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 10,),
-
-                                CustomHoverButton(
-                                    title: "Send".tr(),
-                                    height: 60,
-                                    function: () {},
-                                    color: kPrimaryColor,
-                                    hoverTextColor: Colors.black,
-                                    hoverColor: Colors.white)
-                              ],
-                            ),
-                            Container(
-                              width: screenWidth/2.5,
-                              height: screenHeight/1.5,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(image: AssetImage("assets/images/male-worker-factory.jpg"))
                               ),
-                            )
-                          ],
+                              Text(
+                                "Have Any Questions ?".tr(),
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 45),
+                              ),
+                              SizedBox(
+                                width: screenWidth / 2,
+                                child: Text(
+                                  "Feel free to reach out to us via the contact form below or give us a call at +20 10 1516 9363. We'd love to hear from you!".tr(),
+                                  textAlign: TextAlign.justify,
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 30,),
+
+                              Container(
+                                width: screenWidth/2,
+                                padding: const EdgeInsets.only(left: 10,right: 10),
+
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white,width: 0.5),
+                                ),
+                                child:  TextField(
+                                  controller: subjCnt,
+                                  style: const TextStyle(color: Colors.white),
+                                  decoration: InputDecoration(
+                                    hintText: "Subject".tr(),
+                                    border: InputBorder.none,
+                                      hintStyle: const TextStyle(color: Colors.white)
+
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10,),
+                              Container(
+                                padding: const EdgeInsets.only(left: 10,right: 10),
+                                width: screenWidth/2,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white,width: 0.5),
+                                ),
+                                child:  TextField(
+                                  controller: bodyCnt,
+                                  style: const TextStyle(color: Colors.white),
+                                  maxLines: 5,
+                                  decoration: InputDecoration(
+                                    hintText: "Body".tr(),
+                                    border: InputBorder.none,
+                                    hintStyle: const TextStyle(color: Colors.white)
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10,),
+
+                              CustomHoverButton(
+                                  title: "Send".tr(),
+                                  height: 60,
+                                  function: () async {
+                                    Uri mail = Uri.parse(
+                                        "mailto:info@fruity-charging.com?subject=${subjCnt.text}&body=${bodyCnt.text}");
+                                    await launchUrl(mail);
+                                  },
+                                  color: kPrimaryColor,
+                                  hoverTextColor: Colors.black,
+                                  hoverColor: Colors.white),
+                              const SizedBox(height: 30,),
+                            ],
+                          ),
                         ),
-                        const SizedBox(height: 30,),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  const Footer(),
-                  const SizedBox(height: 50,),
-                ],
-              ),
-            ),
+                ),
+              )
+            ],
           )),
     );
   }
