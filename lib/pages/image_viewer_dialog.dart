@@ -13,7 +13,7 @@ class ImageViewer {
                   alignment: Alignment.topLeft,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(image ?? "-"), fit: BoxFit.fitHeight),
+                        image: AssetImage(image ?? "-"), fit: BoxFit.fitWidth),
                   ),
                   child: InkWell(
                     onTap: () {

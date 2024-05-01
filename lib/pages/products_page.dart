@@ -1,4 +1,5 @@
 import 'package:alfatemia_engines/mobile_view/products.dart';
+import 'package:alfatemia_engines/pages/image_viewer_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
@@ -67,25 +68,103 @@ class ProductsScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                SizedBox(width: 50,),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "Our Products".tr(),
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 30),
-                                    ),
+                                    Container(
+                                      width: screenWidth/3,
+                                      height: screenHeight/1.5,
+                                      decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: AssetImage("assets/images/stevn_1.jpg"))
+                                      ),
+                                    )
                                   ],
                                 ),
+                                SizedBox(width: 10,),
+                                SizedBox(
+                                  height: screenHeight/1.5,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                     InkWell(
+                                         onTap:(){
+                                           ImageViewer().show(context,image:"assets/images/stevn_2.jpg" );
+                                         },
+                                         child: Image.asset("assets/images/stevn_2.jpg",width: 150,height: 150,fit: BoxFit.contain,)),
+                                     InkWell(
+                                         onTap:(){
+                                           ImageViewer().show(context,image:"assets/images/stevn_3.jpg" );
+                                         },
+                                         child: Image.asset("assets/images/stevn_3.jpg",width: 150,height: 150,fit: BoxFit.contain,)),
+                                     InkWell(
+                                         onTap:(){
+                                           ImageViewer().show(context,image:"assets/images/stevn_4.jpg" );
+                                         },
+                                         child: Image.asset("assets/images/stevn_4.jpg",width: 150,height: 150,fit: BoxFit.contain,)),
+                                     InkWell(
+                                         onTap:(){
+                                           ImageViewer().show(context,image:"assets/images/stevn_5.jpg" );
+                                         },
+                                         child: Image.asset("assets/images/stevn_5.jpg",width: 150,height: 150,fit: BoxFit.contain,)),
+                                    ],
+                                  ),
+                                ),
+                                Spacer(),
+                                SizedBox(
+                                  width: screenWidth/3,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      SizedBox(height: 100,),
+                                      Text(
+                                        "Stoven Gas stove".tr(),
+                                        style: const TextStyle(
+                                            color: Colors.white, fontSize: 40),
+                                      ),
+                                       Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 80.0, right: 80, top: 20),
+                                        child: Text(
+                                          "stoven_script".tr(),
+                                          maxLines: 20,
+                                          textAlign: TextAlign.justify,
+                                          style: const TextStyle(
+                                              color: Colors.white, fontSize: 25),
+                                        ),
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(width: 50,),
+
                               ],
                             ),
-
+                            SizedBox(height: 150,),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        color: Colors.white,
+                        child: Column(
+                          children: [
                             const SizedBox(
                               height: 100,
+                            ),
+                            Text(
+                              "Our Products".tr(),
+                              style: const TextStyle(
+                                  color: kPrimaryColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 45),
+                            ),
+                            const SizedBox(
+                              height: 80,
                             ),
                             Row(
                               children: [
@@ -104,22 +183,22 @@ class ProductsScreen extends StatelessWidget {
                                         Text(
                                           "Stand Motors".tr(),
                                           style: const TextStyle(
-                                              color: Colors.white, fontSize: 30),
+                                              color: Colors.black, fontSize: 30),
                                         ),
                                         const SizedBox(
                                           height: 20,
                                         ),
-                                        const Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 80.0, right: 80, top: 20),
-                                          child: Text(
-                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                            maxLines: 5,
-                                            textAlign: TextAlign.justify,
-                                            style: TextStyle(
-                                                color: Colors.white, fontSize: 16),
-                                          ),
-                                        ),
+                                        // const Padding(
+                                        //   padding: EdgeInsets.only(
+                                        //       left: 80.0, right: 80, top: 20),
+                                        //   child: Text(
+                                        //     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                        //     maxLines: 5,
+                                        //     textAlign: TextAlign.justify,
+                                        //     style: TextStyle(
+                                        //         color: Colors.black, fontSize: 16),
+                                        //   ),
+                                        // ),
                                       ],
                                     ))
                               ],
@@ -135,19 +214,19 @@ class ProductsScreen extends StatelessWidget {
                                         Text(
                                           "Hood Motors".tr(),
                                           style: const TextStyle(
-                                              color: Colors.white, fontSize: 30),
+                                              color: Colors.black, fontSize: 30),
                                         ),
-                                        const Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 80.0, right: 80, top: 20),
-                                          child: Text(
-                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                            maxLines: 5,
-                                            textAlign: TextAlign.justify,
-                                            style: TextStyle(
-                                                color: Colors.white, fontSize: 16),
-                                          ),
-                                        ),
+                                        // const Padding(
+                                        //   padding: EdgeInsets.only(
+                                        //       left: 80.0, right: 80, top: 20),
+                                        //   child: Text(
+                                        //     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                        //     maxLines: 5,
+                                        //     textAlign: TextAlign.justify,
+                                        //     style: TextStyle(
+                                        //         color: Colors.black, fontSize: 16),
+                                        //   ),
+                                        // ),
                                       ],
                                     )),
                                 Container(
@@ -181,19 +260,19 @@ class ProductsScreen extends StatelessWidget {
                                         Text(
                                           "Ceiling Motors".tr(),
                                           style: const TextStyle(
-                                              color: Colors.white, fontSize: 30),
+                                              color: Colors.black, fontSize: 30),
                                         ),
-                                        const Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 80.0, right: 80, top: 20),
-                                          child: Text(
-                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                            maxLines: 5,
-                                            textAlign: TextAlign.justify,
-                                            style: TextStyle(
-                                                color: Colors.white, fontSize: 16),
-                                          ),
-                                        ),
+                                        // const Padding(
+                                        //   padding: EdgeInsets.only(
+                                        //       left: 80.0, right: 80, top: 20),
+                                        //   child: Text(
+                                        //     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                        //     maxLines: 5,
+                                        //     textAlign: TextAlign.justify,
+                                        //     style: TextStyle(
+                                        //         color: Colors.black, fontSize: 16),
+                                        //   ),
+                                        // ),
                                       ],
                                     ))
                               ],
@@ -209,19 +288,19 @@ class ProductsScreen extends StatelessWidget {
                                         Text(
                                           "Blender Motors".tr(),
                                           style: const TextStyle(
-                                              color: Colors.white, fontSize: 30),
+                                              color: Colors.black, fontSize: 30),
                                         ),
-                                        const Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 80.0, right: 80, top: 20),
-                                          child: Text(
-                                            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                            maxLines: 5,
-                                            textAlign: TextAlign.justify,
-                                            style: TextStyle(
-                                                color: Colors.white, fontSize: 16),
-                                          ),
-                                        ),
+                                        // const Padding(
+                                        //   padding: EdgeInsets.only(
+                                        //       left: 80.0, right: 80, top: 20),
+                                        //   child: Text(
+                                        //     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                                        //     maxLines: 5,
+                                        //     textAlign: TextAlign.justify,
+                                        //     style: TextStyle(
+                                        //         color: Colors.black, fontSize: 16),
+                                        //   ),
+                                        // ),
                                       ],
                                     )),
                                 Container(
@@ -240,7 +319,8 @@ class ProductsScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
+                      )
+
                     ],
                   ),
                 ),

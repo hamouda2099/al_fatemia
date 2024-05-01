@@ -10,6 +10,8 @@ import '../components/footer.dart';
 import '../config/constants.dart';
 import '../config/navigator.dart';
 import '../pages/contact_us_page.dart';
+import '../pages/image_viewer_dialog.dart';
+import '../pages/video_player_dialog.dart';
 
 class HomeMobile extends StatelessWidget {
   ScrollController scrollController = ScrollController();
@@ -163,155 +165,161 @@ class HomeMobile extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      Column(
-                        children: [
-                          Container(
-                            width: screenWidth / 2,
-                            height: screenHeight / 2,
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: AssetImage(
-                                        "assets/images/stand_motor_1.png"))),
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                "Stand Motors".tr(),
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(
-                                    left: 40.0, right: 40, top: 10),
-                                child: Text(
-                                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                  maxLines: 5,
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 14),
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            width: screenWidth / 2,
-                            height: screenHeight / 2,
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: AssetImage(
-                                        "assets/images/hood_motor_1.png"))),
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                "Hood Motors".tr(),
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(
-                                    left: 40.0, right: 40, top: 20),
-                                child: Text(
-                                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                  maxLines: 5,
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 14),
-                                ),
-                              ),
-                            ],
-                          ),
 
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Column(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            width: screenWidth / 2,
-                            height: screenHeight / 2,
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: AssetImage(
-                                        "assets/images/ceiling_motor_1.png"))),
-                          ),
                           Column(
                             children: [
-                              Text(
-                                "Ceiling Motors".tr(),
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(
-                                    left: 40.0, right: 40, top: 20),
-                                child: Text(
-                                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                  maxLines: 5,
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 14),
+                              InkWell(
+                                onTap:(){
+                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/NbXLKWtDlSg");
+                                },
+                                child: Container(
+                                  width: screenWidth/2.5,
+                                  height: 200,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage("assets/images/video_1.png"))
+                                  ),
+                                  child: Container(
+                                    color: Colors.black.withOpacity(0.4),
+                                    width: screenWidth/2.5,
+                                    height: 200,
+                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                                      size: 50,),
+                                  ),
                                 ),
                               ),
+                              const SizedBox(height: 10,),
+                              SizedBox(
+                                width: screenWidth/2.5,
+                                child: const Text("شوف دلوقت موتور الفاطمية المصري بكل مكوناته مع التفاصيل بضمان الجودة ودقة الإتقان",maxLines: 3, style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold
+                                ),),
+                              )
                             ],
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            width: screenWidth / 2,
-                            height: screenHeight / 2,
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: AssetImage(
-                                        "assets/images/blinder_motor_1.png"))),
                           ),
+                          const SizedBox(width: 10,),
                           Column(
                             children: [
-                              Text(
-                                "Blender Motors".tr(),
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(
-                                    left: 40.0, right: 40, top: 20),
-                                child: Text(
-                                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-                                  maxLines: 5,
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 16),
+                              InkWell(
+                                onTap:(){
+                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/SYPr4gozW10");
+                                },
+                                child: Container(
+                                  width: screenWidth/2.5,
+                                  height: 200,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage("assets/images/video_2.png"))
+                                  ),
+                                  child: Container(
+                                    color: Colors.black.withOpacity(0.4),
+                                    width: screenWidth/2.5,
+                                    height: 200,
+                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                                      size: 50,),
+                                  ),
                                 ),
                               ),
+                              const SizedBox(height: 10,),
+                              SizedBox(
+                                width: screenWidth/2.5,
+                                child: const Text("كفاءة تصنيع موتور المروحة المصري بأقوى الخامات بيور 100%",maxLines: 3, style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold
+                                ),),
+                              )
                             ],
                           ),
+                        ],
+                      ),
+                      const SizedBox(height: 20,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
 
+                          Column(
+                            children: [
+                              InkWell(
+                                onTap:(){
+                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/87QquNnPwUY");
+                                },
+                                child: Container(
+                                  width: screenWidth/2.5,
+                                  height: 200,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage("assets/images/video_3.png"))
+                                  ),
+                                  child: Container(
+                                    color: Colors.black.withOpacity(0.4),
+                                    width: screenWidth/2.5,
+                                    height: 200,
+                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                                      size: 50,),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10,),
+                              SizedBox(
+                                width: screenWidth/2.5,
+                                child: const Text("لأول مرة في مصر موتور مروحة صناعة مصرية 100% بخط الإنتاج كامل وعمالة محلية",maxLines: 3, style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold
+                                ),),
+                              )
+                            ],
+                          ),
+                          const SizedBox(width: 10,),
+
+                          Column(
+                            children: [
+                              InkWell(
+                                onTap:(){
+                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/KsEnmtKttzo");
+                                },
+                                child: Container(
+                                  width: screenWidth/2.5,
+                                  height: 200,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage("assets/images/video_4.png"))
+                                  ),
+                                  child: Container(
+                                    color: Colors.black.withOpacity(0.4),
+                                    width: screenWidth/2.5,
+                                    height: 200,
+                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                                      size: 50,),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10,),
+                              SizedBox(
+                                width: screenWidth/2.5,
+                                child: const Text("مصنع الفاطمية للمحركات مصنع الموتور المصري",maxLines: 3, style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold
+                                ),),
+                              )
+                            ],
+                          ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+
                     ],
                   ),
                 ),
@@ -366,22 +374,106 @@ class HomeMobile extends StatelessWidget {
                   ),
                 ),
                 Container(
+                  color: kPrimaryColor,
+                  width: screenWidth,
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Social Media Events".tr(),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(4, (index) => InkWell(
+                          onTap: (){
+                            ImageViewer().show(context,image: "assets/images/post_${index + 1}.jpg");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Image.asset(
+                              "assets/images/post_${index + 1}.jpg",width: screenWidth/5,height: screenWidth/5,),
+                          ),
+                        )),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: List.generate(4, (index) => InkWell(
+                          onTap: (){
+                            ImageViewer().show(context,image: "assets/images/post_${index + 5}.jpg");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Image.asset(
+                              "assets/images/post_${index + 6}.jpg",width: screenWidth/5,height: screenWidth/5,),
+                          ),
+                        )),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: List.generate(4, (index) => InkWell(
+                          onTap: (){
+                            ImageViewer().show(context,image: "assets/images/post_${index + 9}.jpg");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Image.asset(
+                              "assets/images/post_${index + 11}.jpg",width: screenWidth/5,height: screenWidth/5,),
+                          ),
+                        )),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: List.generate(4, (index) => InkWell(
+                          onTap: (){
+                            ImageViewer().show(context,image: "assets/images/post_${index + 13}.jpg");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              child: Image.asset(
+                                "assets/images/post_${index + 16}.jpg",width: screenWidth/5,height: screenWidth/5,),
+                            ),
+                          ),
+                        )),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: List.generate(4, (index) => InkWell(
+                          onTap: (){
+                            ImageViewer().show(context,image: "assets/images/post_${index + 17}.jpg");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              child: Image.asset(
+                                "assets/images/post_${index + 16}.jpg",width: screenWidth/5,height: screenWidth/5,),
+                            ),
+                          ),
+                        )),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
                   width: screenWidth,
                   color: Colors.white,
                   padding: const EdgeInsets.all(30),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "Our Products".tr(),
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
                       const SizedBox(
                         height: 15,
                       ),
@@ -435,7 +527,7 @@ class HomeMobile extends StatelessWidget {
                         height: 50,
                       ),
                       Text(
-                        "Our Companies".tr(),
+                        "Our Branches".tr(),
                         style: const TextStyle(
                             color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
@@ -451,9 +543,6 @@ class HomeMobile extends StatelessWidget {
                                     "El-Ula Plass".tr(),
                                     style: const TextStyle(
                                         color: Colors.black, fontSize: 20),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
                                   ),
                                   Text(
                                     "El-Ulaa Plus for Wholesale Products Trading"
@@ -477,6 +566,89 @@ class HomeMobile extends StatelessWidget {
                           ),
                         ],
                       ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Headquarters in Dubai".tr(),
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 12,fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 10,),
+
+                          Text(
+                            "Dubai deira , DBC building, office No.114".tr(),
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 10),
+                          ),
+                          Text(
+                            "10th of Ramadan ,3rd industrial zone, plot No 1/5/31".tr(),
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 10),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Contact".tr(),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 12,fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(height: 10,),
+                          
+                              Text(
+                                "+971543557055".tr(),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 10),
+                              ),
+                              Text(
+                                "+971583883825".tr(),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 10),
+                              ),
+                              Text(
+                                "+97144487033".tr(),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 10),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Socials".tr(),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 12,fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(height: 10,),
+                          
+                              Text(
+                                "Facebook".tr(),
+                                style: const TextStyle(
+                                  color: Colors.black, fontSize: 10,),
+                              ),
+                              Text(
+                                "Instagram".tr(),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 10),
+                              ),
+                              Text(
+                                "Tiktok".tr(),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 10),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+
                       Footer()
                     ],
                   ),
