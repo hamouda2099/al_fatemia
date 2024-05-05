@@ -35,18 +35,56 @@ class Footer extends StatelessWidget {
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    "Egypt Branch".tr(),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight:
+                        FontWeight.bold),
+                  ),
                   Text("Head Office".tr(),style: const TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold
                   ),),
                   const SizedBox(height: 10,),
+                  Text(
+                    "6,Build 9,Obour BBuildings, Salah Salem Street, Egypt".tr()
+                        .tr(),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16),
+                  ),
+                  const SizedBox(height: 10,),
+
+                  Text(
+                    "Factory Address".tr(),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight:
+                        FontWeight.bold),),
+                  const SizedBox(height: 10,),
+
                   Text("16 Masr and Sudan Street, 2nd Industrial Zone, 10th of Ramadan City, Egypt".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
                   const SizedBox(height: 10,),
-                  Text("+20 101 516 9363".tr(),style: const TextStyle(
+                  Text("201069048848"+"+",style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),),
+                  Text("20101 3661834"+"+",style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),),
+                  Text("201227014747"+"+",style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),),
+                  Text("0554498532",style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
@@ -71,41 +109,36 @@ class Footer extends StatelessWidget {
                       fontWeight: FontWeight.bold
                   ),),
                   const SizedBox(height: 10,),
-                  InkWell(
-                    onTap: () async{
-                      await launchUrl(
-                        Uri.parse("https://www.facebook.com/alfatemiaengines.eg"),
-                      );
-                    },
-                    child: Text("Facebook".tr(),style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                    ),),
-                  ),
-                  const SizedBox(height: 10,),
-                  InkWell(
-                    onTap: () async{
-                      await launchUrl(
-                        Uri.parse("https://www.instagram.com/al_fatemia_engines/?next=%2F"),
-                      );
-                    },
-                    child: Text("Instagram".tr(),style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                    ),),
-                  ),
-                  const SizedBox(height: 10,),
-                  InkWell(
-                    onTap: ()async{
-                      await launchUrl(
-                        Uri.parse("https://www.tiktok.com/@al.fatemia.engine?_t=8liNT51oDDC&_r=1"),
-                      );
-                    },
-                    child: Text("Tiktok".tr(),style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                    ),),
-                  ),
+                  Row(
+                    children: [
+                      InkWell(
+                          onTap: () async{
+                            await launchUrl(
+                              Uri.parse("https://www.facebook.com/alfatemiaengines.eg"),
+                            );
+                          },
+                          child: Image.asset("assets/images/facebook.png",width: 20,height: 20,)
+                      ),
+                      const SizedBox(width: 10,),
+                      InkWell(
+                          onTap: () async{
+                            await launchUrl(
+                              Uri.parse("https://www.instagram.com/al_fatemia_engines/?next=%2F"),
+                            );
+                          },
+                          child: Image.asset("assets/images/instagram.png",width: 20,height: 20,)
+                      ),
+                      const SizedBox(width: 10,),
+                      InkWell(
+                          onTap: ()async{
+                            await launchUrl(
+                              Uri.parse("https://www.tiktok.com/@al.fatemia.engine?_t=8liNT51oDDC&_r=1"),
+                            );
+                          },
+                          child: Image.asset("assets/images/tik-tok.png",width: 20,height: 20,)
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -122,7 +155,7 @@ class Footer extends StatelessWidget {
                       fontWeight: FontWeight.bold
                   ),),
                   const SizedBox(height: 10,),
-                  Text("For any inquiries, questions or commendations, please call: +2 010 1516 9363".tr()
+                  Text("For any inquiries, questions or commendations, please contact us.".tr()
                     ,style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -172,18 +205,54 @@ class Footer extends StatelessWidget {
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    "Egypt Branch".tr(),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight:
+                        FontWeight.bold),
+                  ),
                   Text("Head Office".tr(),style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold
                   ),),
+
+                  Text(
+                    "6,Build 9,Obour BBuildings, Salah Salem Street, Egypt".tr()
+                        .tr(),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16),
+                  ),
                   const SizedBox(height: 10,),
+                  Text(
+                    "Factory Address".tr(),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight:
+                        FontWeight.bold),
+                  ),
                   Text("16 Masr and Sudan Street, 2nd Industrial Zone, 10th of Ramadan City, Egypt".tr(),style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                   ),),
                   const SizedBox(height: 10,),
-                  Text("+20 101 516 9363".tr(),style: const TextStyle(
+                  Text("201069048848"+"+",style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),),
+                  Text("20101 3661834"+"+",style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),),
+                  Text("201227014747"+"+",style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),),
+                  Text("0554498532",style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
@@ -206,41 +275,36 @@ class Footer extends StatelessWidget {
                     fontWeight: FontWeight.bold
                   ),),
                   const SizedBox(height: 10,),
-                  InkWell(
-                    onTap: () async{
-                      await launchUrl(
-                      Uri.parse("https://www.facebook.com/alfatemiaengines.eg"),
-                      );
-                    },
-                    child: Text("Facebook".tr(),style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                    ),),
-                  ),
-                  const SizedBox(height: 10,),
-                  InkWell(
-                    onTap: () async{
-                      await launchUrl(
-                      Uri.parse("https://www.instagram.com/al_fatemia_engines/?next=%2F"),
-                      );
-                    },
-                    child: Text("Instagram".tr(),style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                    ),),
-                  ),
-                  const SizedBox(height: 10,),
-                  InkWell(
-                    onTap: ()async{
-                      await launchUrl(
-                      Uri.parse("https://www.tiktok.com/@al.fatemia.engine?_t=8liNT51oDDC&_r=1"),
-                      );
-                    },
-                    child: Text("Tiktok".tr(),style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                    ),),
-                  ),
+                 Row(
+                   children: [
+                     InkWell(
+                         onTap: () async{
+                           await launchUrl(
+                             Uri.parse("https://www.facebook.com/alfatemiaengines.eg"),
+                           );
+                         },
+                         child: Image.asset("assets/images/facebook.png",width: 30,height: 30,)
+                     ),
+                     const SizedBox(width: 10,),
+                     InkWell(
+                         onTap: () async{
+                           await launchUrl(
+                             Uri.parse("https://www.instagram.com/al_fatemia_engines/?next=%2F"),
+                           );
+                         },
+                         child: Image.asset("assets/images/instagram.png",width: 30,height: 30,)
+                     ),
+                     const SizedBox(width: 10,),
+                     InkWell(
+                         onTap: ()async{
+                           await launchUrl(
+                             Uri.parse("https://www.tiktok.com/@al.fatemia.engine?_t=8liNT51oDDC&_r=1"),
+                           );
+                         },
+                         child: Image.asset("assets/images/tik-tok.png",width: 30,height: 30,)
+                     ),
+                   ],
+                 )
                 ],
               ),
             ),
@@ -255,7 +319,7 @@ class Footer extends StatelessWidget {
                     fontWeight: FontWeight.bold
                   ),),
                   const SizedBox(height: 10,),
-                  Text("For any inquiries, questions or commendations, please call: +2 010 1516 9363".tr()
+                  Text("For any inquiries, questions or commendations, please contact us.".tr()
                     ,style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,

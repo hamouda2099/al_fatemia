@@ -22,16 +22,93 @@ class CustomAppBar extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              CustomHoverButton(
-                title: "≡".tr(),
-                width: 50,
-                height: 50,
-                color: Colors.transparent,
-                hoverColor: Colors.white,
-                function: () {
-                  menu(context);
-                },
+              Container(
+                width: (screenWidth / 2),
+                height: 80,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  border: Border.all(color: kPrimaryColor, width: 1),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+                      children: [
+                        CustomHoverButton(
+                          title: "Home".tr(),
+                          height: 35,
+                          color: Colors.transparent,
+                          width: screenWidth/5,
+
+                          hoverColor: Colors.white,
+                          function: () {
+                            navigator(context: context, route: HomeScreen.id);
+                          },
+                        ),
+                        CustomHoverButton(
+                          title: "Products".tr(),
+                          height: 35 ,
+                          width: screenWidth/5,
+                          color: Colors.transparent,
+                          hoverColor: Colors.white,
+                          function: () {
+                            navigator(context: context, route: ProductsScreen.id);
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CustomHoverButton(
+                          title: "About Us".tr(),
+                          width: screenWidth/5,
+
+                          height: 35,
+                          color: Colors.transparent,
+                          hoverColor: Colors.white,
+                          function: () {
+                            navigator(context: context, route: AboutUsScreen.id);
+                          },
+                        ),
+                        CustomHoverButton(
+                          title: "Contact Us".tr(),
+                          width: screenWidth/5,
+
+                          height: 35,
+                          color: Colors.transparent,
+                          hoverColor: Colors.white,
+                          function: () {
+                            navigator(context: context, route: ContactUsScreen.id);
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
+              const SizedBox(
+                width: 10,
+              ),
+              CustomHoverButton(
+                  title: localLanguage == "en" ? "العربية" : "English",
+                  function: () {
+                    if (localLanguage == 'en') {
+                      localLanguage = 'ar';
+                      context.setLocale(const Locale('ar'));
+                      textDirection = ui.TextDirection.rtl;
+                    } else {
+                      localLanguage = 'en';
+                      context.setLocale(const Locale('en'));
+                      textDirection = ui.TextDirection.ltr;
+                    }
+                  },
+                  color: kPrimaryColor,
+                  width: screenWidth/5,
+                  hoverFontWeight: FontWeight.bold,
+                  hoverTextColor: Colors.black,
+                  hoverColor: Colors.white),
             ],
           )
         : Row(

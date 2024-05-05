@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../components/app_bar.dart';
 import '../components/app_bar_hover_button.dart';
@@ -57,7 +59,10 @@ class HomeMobile extends StatelessWidget {
                             fontSize: 18,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
-                      ),
+                      ).animate()
+                          .fadeIn(duration: 600.ms)
+                          .then(delay: 200.ms) // baseline=800ms
+                          .slide(),
                       Text(
                         "The first and only supplier for engines in middle east."
                             .tr(),
@@ -65,14 +70,20 @@ class HomeMobile extends StatelessWidget {
                           fontSize: 14,
                           color: Colors.white,
                         ),
-                      ),
+                      ).animate()
+                          .fadeIn(duration: 600.ms)
+                          .then(delay: 200.ms) // baseline=800ms
+                          .slide(),
                       Text(
                         "Egyption Hands 100%".tr(),
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.white,
                         ),
-                      ),
+                      ).animate()
+                          .fadeIn(duration: 600.ms)
+                          .then(delay: 200.ms) // baseline=800ms
+                          .slide(),
                       const SizedBox(
                         height: 10,
                       ),
@@ -91,7 +102,7 @@ class HomeMobile extends StatelessWidget {
                               },
                               color: Colors.transparent,
                               hoverTextColor: Colors.black,
-                              hoverColor: Colors.white),
+                              hoverColor: Colors.white).animate().slide(),
                           const SizedBox(
                             width: 20,
                           ),
@@ -166,158 +177,135 @@ class HomeMobile extends StatelessWidget {
                         height: 10,
                       ),
 
-                      Row(
+                      Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap:(){
-                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/NbXLKWtDlSg");
-                                },
-                                child: Container(
-                                  width: screenWidth/2.5,
-                                  height: 200,
-                                  decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage("assets/images/video_1.png"))
-                                  ),
-                                  child: Container(
-                                    color: Colors.black.withOpacity(0.4),
-                                    width: screenWidth/2.5,
-                                    height: 200,
-                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
-                                      size: 50,),
-                                  ),
-                                ),
+                          InkWell(
+                            onTap:(){
+                              playVideoFromUrl(context,url: "https://www.youtube.com/embed/NbXLKWtDlSg");
+                            },
+                            child: Container(
+                              width: screenWidth/1.2,
+                              height: screenWidth/1.2,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage("assets/images/video_1.png"))
                               ),
-                              const SizedBox(height: 10,),
-                              SizedBox(
-                                width: screenWidth/2.5,
-                                child: const Text("شوف دلوقت موتور الفاطمية المصري بكل مكوناته مع التفاصيل بضمان الجودة ودقة الإتقان",maxLines: 3, style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold
-                                ),),
-                              )
-                            ],
+                              child: Container(
+                                color: Colors.black.withOpacity(0.4),
+                                width: screenWidth/1.2,
+                                height: screenWidth/1.2,
+                                child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                                  size: 50,),
+                              ),
+                            ),
                           ),
-                          const SizedBox(width: 10,),
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap:(){
-                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/SYPr4gozW10");
-                                },
-                                child: Container(
-                                  width: screenWidth/2.5,
-                                  height: 200,
-                                  decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage("assets/images/video_2.png"))
-                                  ),
-                                  child: Container(
-                                    color: Colors.black.withOpacity(0.4),
-                                    width: screenWidth/2.5,
-                                    height: 200,
-                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
-                                      size: 50,),
-                                  ),
-                                ),
+                          const SizedBox(height: 10,),
+                          SizedBox(
+                            width: screenWidth/1.2,
+                            child: const Text("شوف دلوقت موتور الفاطمية المصري بكل مكوناته مع التفاصيل بضمان الجودة ودقة الإتقان",maxLines: 3, style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold
+                            ),),
+                          ),
+                          const SizedBox(height: 20,),
+                          InkWell(
+                            onTap:(){
+                              playVideoFromUrl(context,url: "https://www.youtube.com/embed/SYPr4gozW10");
+                            },
+                            child: Container(
+                              width: screenWidth/1.2,
+                              height: screenWidth/1.2,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage("assets/images/video_2.png"))
                               ),
-                              const SizedBox(height: 10,),
-                              SizedBox(
-                                width: screenWidth/2.5,
-                                child: const Text("كفاءة تصنيع موتور المروحة المصري بأقوى الخامات بيور 100%",maxLines: 3, style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold
-                                ),),
-                              )
-                            ],
+                              child: Container(
+                                color: Colors.black.withOpacity(0.4),
+                                width: screenWidth/1.2,
+                                height: screenWidth/1.2,
+                                child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                                  size: 50,),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 10,),
+                          SizedBox(
+                            width: screenWidth/1.2,
+                            child: const Text("كفاءة تصنيع موتور المروحة المصري بأقوى الخامات بيور 100%",maxLines: 3, style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold
+                            ),),
                           ),
                         ],
                       ),
                       const SizedBox(height: 20,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap:(){
-                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/87QquNnPwUY");
-                                },
-                                child: Container(
-                                  width: screenWidth/2.5,
-                                  height: 200,
-                                  decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage("assets/images/video_3.png"))
-                                  ),
-                                  child: Container(
-                                    color: Colors.black.withOpacity(0.4),
-                                    width: screenWidth/2.5,
-                                    height: 200,
-                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
-                                      size: 50,),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10,),
-                              SizedBox(
-                                width: screenWidth/2.5,
-                                child: const Text("لأول مرة في مصر موتور مروحة صناعة مصرية 100% بخط الإنتاج كامل وعمالة محلية",maxLines: 3, style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold
-                                ),),
-                              )
-                            ],
+                      InkWell(
+                        onTap:(){
+                          playVideoFromUrl(context,url: "https://www.youtube.com/embed/87QquNnPwUY");
+                        },
+                        child: Container(
+                          width: screenWidth/1.2,
+                          height: screenWidth/1.2,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage("assets/images/video_3.png"))
                           ),
-                          const SizedBox(width: 10,),
-
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap:(){
-                                  playVideoFromUrl(context,url: "https://www.youtube.com/embed/KsEnmtKttzo");
-                                },
-                                child: Container(
-                                  width: screenWidth/2.5,
-                                  height: 200,
-                                  decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage("assets/images/video_4.png"))
-                                  ),
-                                  child: Container(
-                                    color: Colors.black.withOpacity(0.4),
-                                    width: screenWidth/2.5,
-                                    height: 200,
-                                    child: const Icon(Icons.play_arrow,color: kPrimaryColor,
-                                      size: 50,),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10,),
-                              SizedBox(
-                                width: screenWidth/2.5,
-                                child: const Text("مصنع الفاطمية للمحركات مصنع الموتور المصري",maxLines: 3, style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold
-                                ),),
-                              )
-                            ],
+                          child: Container(
+                            color: Colors.black.withOpacity(0.4),
+                            width: screenWidth/1.2,
+                            height: screenWidth/1.2,
+                            child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                              size: 50,),
                           ),
-                        ],
+                        ),
+                      ),
+                      const SizedBox(height: 20,),
+                      SizedBox(
+                        width: screenWidth/1.2,
+                        child: const Text("لأول مرة في مصر موتور مروحة صناعة مصرية 100% بخط الإنتاج كامل وعمالة محلية",maxLines: 3, style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold
+                        ),),
+                      ),
+                      const SizedBox(height: 20,),
+
+                      InkWell(
+                        onTap:(){
+                          playVideoFromUrl(context,url: "https://www.youtube.com/embed/KsEnmtKttzo");
+                        },
+                        child: Container(
+                          width: screenWidth/1.2,
+                          height: screenWidth/1.2,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage("assets/images/video_4.png"))
+                          ),
+                          child: Container(
+                            color: Colors.black.withOpacity(0.4),
+                            width: screenWidth/1.2,
+                            height: screenWidth/1.2,
+                            child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                              size: 50,),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10,),
+                      SizedBox(
+                        width: screenWidth/1.2,
+                        child: const Text("مصنع الفاطمية للمحركات مصنع الموتور المصري",maxLines: 3, style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold
+                        ),),
                       ),
 
                     ],
@@ -325,7 +313,7 @@ class HomeMobile extends StatelessWidget {
                 ),
                 Container(
                   width: screenWidth,
-                  height: screenHeight / 3,
+                  height: screenHeight / 2,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
@@ -374,99 +362,162 @@ class HomeMobile extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  color: kPrimaryColor,
-                  width: screenWidth,
-                  padding: EdgeInsets.all(20),
+                  color: Colors.white,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Social Media Events".tr(),
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(4, (index) => InkWell(
-                          onTap: (){
-                            ImageViewer().show(context,image: "assets/images/post_${index + 1}.jpg");
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Image.asset(
-                              "assets/images/post_${index + 1}.jpg",width: screenWidth/5,height: screenWidth/5,),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Text(
+                            "Social Media Events".tr(),
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
                           ),
-                        )),
+                        ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-
-                        children: List.generate(4, (index) => InkWell(
-                          onTap: (){
-                            ImageViewer().show(context,image: "assets/images/post_${index + 5}.jpg");
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Image.asset(
-                              "assets/images/post_${index + 6}.jpg",width: screenWidth/5,height: screenWidth/5,),
-                          ),
-                        )),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-
-                        children: List.generate(4, (index) => InkWell(
-                          onTap: (){
-                            ImageViewer().show(context,image: "assets/images/post_${index + 9}.jpg");
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Image.asset(
-                              "assets/images/post_${index + 11}.jpg",width: screenWidth/5,height: screenWidth/5,),
-                          ),
-                        )),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-
-                        children: List.generate(4, (index) => InkWell(
-                          onTap: (){
-                            ImageViewer().show(context,image: "assets/images/post_${index + 13}.jpg");
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Container(
-                              child: Image.asset(
-                                "assets/images/post_${index + 16}.jpg",width: screenWidth/5,height: screenWidth/5,),
-                            ),
-                          ),
-                        )),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-
-                        children: List.generate(4, (index) => InkWell(
-                          onTap: (){
-                            ImageViewer().show(context,image: "assets/images/post_${index + 17}.jpg");
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Container(
-                              child: Image.asset(
-                                "assets/images/post_${index + 16}.jpg",width: screenWidth/5,height: screenWidth/5,),
-                            ),
-                          ),
-                        )),
+                      SizedBox(height: 20,),
+                      Container(
+                        width: screenWidth,
+                        color: Colors.white,
+                        child: const Image(
+                          image:
+                          AssetImage("assets/images/mockup.png"),
+                        ),
                       ),
                     ],
                   ),
                 ),
 
+                Container(
+                  color: kPrimaryColor,
+                  width: screenWidth,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: screenWidth,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
+                          children: List.generate(20, (index) => Padding(
+                            padding: const EdgeInsets.only(top: 10.0,bottom: 10),
+                            child: InkWell(
+                              onTap: (){
+                                ImageViewer().show(context,image: "assets/images/post_${index + 1}.jpg");
+                              },
+                              child: Image.asset(
+                                "assets/images/post_${index + 1}.jpg",width: screenWidth,height: screenWidth,fit: BoxFit.contain,),
+                            ),
+                          )),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  width: screenWidth,
+                  height: screenHeight,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/images/products_back.png"),
+                    ),
+                  ),
+                  child: Container(
+                    width: screenWidth,
+                    height: screenHeight/2,
+                    color: Colors.black.withOpacity(0.5),
+                    child:                 Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: screenWidth/1.2,
+                                height: screenHeight/3,
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage("assets/images/stevn_1.jpg"))
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              SizedBox(
+                                width: screenWidth/1.2,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    InkWell(
+                                        onTap:(){
+                                          ImageViewer().show(context,image:"assets/images/stevn_2.jpg" );
+                                        },
+                                        child: Image.asset("assets/images/stevn_2.jpg",width: screenWidth/5,height: screenWidth/5,fit: BoxFit.contain,)),
+                                    InkWell(
+                                        onTap:(){
+                                          ImageViewer().show(context,image:"assets/images/stevn_3.jpg" );
+                                        },
+                                        child: Image.asset("assets/images/stevn_3.jpg",width: screenWidth/5,height: screenWidth/5,fit: BoxFit.contain,)),
+                                    InkWell(
+                                        onTap:(){
+                                          ImageViewer().show(context,image:"assets/images/stevn_4.jpg" );
+                                        },
+                                        child: Image.asset("assets/images/stevn_4.jpg",width: screenWidth/5,height: screenWidth/5,fit: BoxFit.contain,)),
+                                    InkWell(
+                                        onTap:(){
+                                          ImageViewer().show(context,image:"assets/images/stevn_5.jpg" );
+                                        },
+                                        child: Image.asset("assets/images/stevn_5.jpg",width: screenWidth/5,height: screenWidth/5,fit: BoxFit.contain,)),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+
+                              SizedBox(
+                                width: screenWidth/1.2,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      "Stoven Gas stove".tr(),
+                                      style: const TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20.0, right: 20, top: 10),
+                                      child: Text(
+                                        "stoven_script".tr(),
+                                        maxLines: 14,
+                                        textAlign: TextAlign.justify,
+                                        style: const TextStyle(
+                                            color: Colors.white, fontSize: 14),
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 50,),
+
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 Container(
                   width: screenWidth,
                   color: Colors.white,
@@ -581,11 +632,6 @@ class HomeMobile extends StatelessWidget {
                             style: const TextStyle(
                                 color: Colors.black, fontSize: 10),
                           ),
-                          Text(
-                            "10th of Ramadan ,3rd industrial zone, plot No 1/5/31".tr(),
-                            style: const TextStyle(
-                                color: Colors.black, fontSize: 10),
-                          ),
                         ],
                       ),
                       const SizedBox(height: 20,),
@@ -629,21 +675,35 @@ class HomeMobile extends StatelessWidget {
                               ),
                               const SizedBox(height: 10,),
                           
-                              Text(
-                                "Facebook".tr(),
-                                style: const TextStyle(
-                                  color: Colors.black, fontSize: 10,),
-                              ),
-                              Text(
-                                "Instagram".tr(),
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 10),
-                              ),
-                              Text(
-                                "Tiktok".tr(),
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 10),
-                              ),
+                              Row(
+                                children: [
+                                  InkWell(
+                                      onTap: () async {
+                                        await launchUrl(
+                                          Uri.parse("https://www.facebook.com/profile.php?id=61558439944898"),
+                                        );
+                                      },
+                                      child: Image.asset("assets/images/facebook.png",width: 20,height: 20,)),
+                                  SizedBox(width: 10,),
+                                  InkWell(
+                                      onTap: () async {
+                                        await launchUrl(
+                                          Uri.parse("https://www.instagram.com/aloula_blass/"),
+                                        );
+                                      },
+                                      child: Image.asset("assets/images/instagram.png",width: 20,height: 20,)),
+                                  SizedBox(width: 10,),
+
+                                  InkWell(
+                                      onTap: () async {
+                                        await launchUrl(
+                                          Uri.parse("https://www.tiktok.com/@aloulablaasforgoods?_t=8ljyrAnNODe&_r=1"),
+                                        );
+                                      },
+                                      child: Image.asset("assets/images/tik-tok.png",width: 20,height: 20,)),
+                                ],
+                              )
+
                             ],
                           ),
                         ],

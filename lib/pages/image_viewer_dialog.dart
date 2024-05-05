@@ -1,3 +1,4 @@
+import 'package:alfatemia_engines/config/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class ImageViewer {
                   alignment: Alignment.topLeft,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(image ?? "-"), fit: BoxFit.fitWidth),
+                        image: AssetImage(image ?? "-"), fit: mobileView ? BoxFit.fitWidth : BoxFit.fitHeight),
                   ),
                   child: InkWell(
                     onTap: () {
