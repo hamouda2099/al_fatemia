@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                       child: Container(
                         width: screenWidth,
                         height: screenHeight,
-                        color: Colors.black.withOpacity(0.5),
+                        color: Colors.black.withOpacity(0.7),
                       ),
                     ),
                     Scrollbar(
@@ -65,18 +65,14 @@ class HomeScreen extends StatelessWidget {
                         controller: scrollController,
                         child: Column(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(30.0),
-                              child: CustomAppBar(),
-                            ),
                             Container(
                               width: screenWidth,
-                              height: screenHeight / 1.5,
+                              height: screenHeight,
                               padding:
                                   const EdgeInsets.only(left: 80, right: 80),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
                                     "Al-Fatemia Engines".tr(),
@@ -84,11 +80,11 @@ class HomeScreen extends StatelessWidget {
                                         fontSize: 60,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),
-                                  ).animate()
+                                  )
+                                      .animate()
                                       .fadeIn(duration: 600.ms)
                                       .then(delay: 200.ms) // baseline=800ms
                                       .slide(),
-
                                   SizedBox(
                                     width: screenWidth / 2,
                                   ),
@@ -99,7 +95,8 @@ class HomeScreen extends StatelessWidget {
                                       fontSize: 45,
                                       color: Colors.white,
                                     ),
-                                  ).animate()
+                                  )
+                                      .animate()
                                       .fadeIn(duration: 600.ms)
                                       .then(delay: 200.ms) // baseline=800ms
                                       .slide(),
@@ -109,7 +106,8 @@ class HomeScreen extends StatelessWidget {
                                       fontSize: 45,
                                       color: Colors.white,
                                     ),
-                                  ).animate()
+                                  )
+                                      .animate()
                                       .fadeIn(duration: 600.ms)
                                       .then(delay: 200.ms) // baseline=800ms
                                       .slide(),
@@ -120,32 +118,36 @@ class HomeScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       CustomHoverButton(
-                                          title: "Contact Us".tr(),
-                                          borderColor: Colors.white,
-                                          height: 60,
-                                          function: () {
-                                            navigator(
-                                                context: context,
-                                                route: ContactUsScreen.id);
-                                          },
-                                          color: Colors.transparent,
-                                          hoverTextColor: Colors.black,
-                                          hoverColor: Colors.white).animate().slide(),
+                                              title: "Contact Us".tr(),
+                                              borderColor: Colors.white,
+                                              height: 60,
+                                              function: () {
+                                                navigator(
+                                                    context: context,
+                                                    route: ContactUsScreen.id);
+                                              },
+                                              color: Colors.transparent,
+                                              hoverTextColor: Colors.black,
+                                              hoverColor: Colors.white)
+                                          .animate()
+                                          .slide(),
                                       const SizedBox(
                                         width: 20,
                                       ),
                                       CustomHoverButton(
-                                          title: "Lets Go".tr(),
-                                          height: 60,
-                                          function: () {
-                                            scrollController.animateTo(1000,
-                                                duration:
-                                                    const Duration(seconds: 1),
-                                                curve: Curves.ease);
-                                          },
-                                          color: kPrimaryColor,
-                                          hoverTextColor: Colors.black,
-                                          hoverColor: Colors.white).animate().slide()
+                                              title: "Lets Go".tr(),
+                                              height: 60,
+                                              function: () {
+                                                scrollController.animateTo(1200,
+                                                    duration: const Duration(
+                                                        seconds: 1),
+                                                    curve: Curves.ease);
+                                              },
+                                              color: kPrimaryColor,
+                                              hoverTextColor: Colors.black,
+                                              hoverColor: Colors.white)
+                                          .animate()
+                                          .slide()
                                     ],
                                   ),
                                 ],
@@ -156,8 +158,13 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Container(
                               width: screenWidth,
-                              color: Colors.white,
                               padding: const EdgeInsets.all(80),
+                              decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  image: DecorationImage(
+                                      fit: BoxFit.fitHeight,
+                                      image: AssetImage(
+                                          "assets/images/frame.jpg"))),
                               child: Column(
                                 children: [
                                   const SizedBox(
@@ -174,7 +181,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             "The Future with Al-Fatemia".tr(),
                                             style: const TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 20),
                                           ),
@@ -185,7 +192,7 @@ class HomeScreen extends StatelessWidget {
                                             "Your Trusted Supplier for Engines"
                                                 .tr(),
                                             style: const TextStyle(
-                                                color: kPrimaryColor,
+                                                color: Colors.white,
                                                 fontSize: 45),
                                           ),
                                         ],
@@ -207,6 +214,49 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(
                                     height: 80,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      playVideoFromUrl(context,
+                                          url:
+                                              "https://www.youtube.com/embed/6GmFGkr5UJE");
+                                    },
+                                    child: Container(
+                                      width: screenWidth / 1.5,
+                                      height: screenWidth / 2,
+                                      decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: AssetImage(
+                                                  "assets/images/video_0.png"))),
+                                      child: Container(
+                                        color: Colors.black.withOpacity(0.4),
+                                        width: screenWidth / 1.5,
+                                        height: screenWidth / 2,
+                                        child: const Icon(
+                                          Icons.play_arrow,
+                                          color: kPrimaryColor,
+                                          size: 100,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  SizedBox(
+                                    width: screenWidth / 1.5,
+                                    child: const Text(
+                                      "الفاطمية للمحركات | بايدي مصرية ١٠٠٪",
+                                      maxLines: 3,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 50,
                                   ),
                                   InkWell(
                                     onTap: () {
@@ -243,7 +293,7 @@ class HomeScreen extends StatelessWidget {
                                       "شوف دلوقت موتور الفاطمية المصري بكل مكوناته مع التفاصيل بضمان الجودة ودقة الإتقان",
                                       maxLines: 3,
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -286,7 +336,7 @@ class HomeScreen extends StatelessWidget {
                                       "كفاءة تصنيع موتور المروحة المصري بأقوى الخامات بيور 100%",
                                       maxLines: 3,
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -329,7 +379,7 @@ class HomeScreen extends StatelessWidget {
                                       "لأول مرة في مصر موتور مروحة صناعة مصرية 100% بخط الإنتاج كامل وعمالة محلية",
                                       maxLines: 3,
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -372,7 +422,7 @@ class HomeScreen extends StatelessWidget {
                                       "مصنع الفاطمية للمحركات مصنع الموتور المصري",
                                       maxLines: 3,
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -429,6 +479,93 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(
+                                          Icons.circle_rounded,
+                                          color: Colors.white,
+                                          size: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          "ماتور مروحة سقف و استاند بكل الانواع",
+                                          maxLines: 10,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(
+                                          Icons.circle_rounded,
+                                          color: Colors.white,
+                                          size: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          "ماتور شفاط و غيره من المنتجات",
+                                          maxLines: 10,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(
+                                          Icons.circle_rounded,
+                                          color: Colors.white,
+                                          size: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          "مواتير الخلاطات بكل أنواعها",
+                                          maxLines: 10,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(
+                                          Icons.circle_rounded,
+                                          color: Colors.white,
+                                          size: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          "مؤخراً صناعة بتوجاز Stoven",
+                                          maxLines: 10,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
@@ -456,9 +593,16 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
                             Container(
-                              color: kPrimaryColor,
                               width: screenWidth,
                               padding: const EdgeInsets.all(80),
+                              decoration: const BoxDecoration(
+                                  color: kPrimaryColor,
+                                  image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      repeat: ImageRepeat.repeatY,
+                                      opacity: 0.5,
+                                      image: AssetImage(
+                                          "assets/images/pattern.png"))),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -524,7 +668,7 @@ class HomeScreen extends StatelessWidget {
                                                   fit: BoxFit.cover,
                                                   image: AssetImage(
                                                       "assets/images/stevn_1.jpg"))),
-                                        )
+                                        ),
                                       ],
                                     ),
                                     const SizedBox(
@@ -544,8 +688,8 @@ class HomeScreen extends StatelessWidget {
                                               },
                                               child: Image.asset(
                                                 "assets/images/stevn_2.jpg",
-                                                width: 150,
-                                                height: 150,
+                                                width: 200,
+                                                height: 200,
                                                 fit: BoxFit.contain,
                                               )),
                                           InkWell(
@@ -556,8 +700,8 @@ class HomeScreen extends StatelessWidget {
                                               },
                                               child: Image.asset(
                                                 "assets/images/stevn_3.jpg",
-                                                width: 150,
-                                                height: 150,
+                                                width: 200,
+                                                height: 200,
                                                 fit: BoxFit.contain,
                                               )),
                                           InkWell(
@@ -568,20 +712,8 @@ class HomeScreen extends StatelessWidget {
                                               },
                                               child: Image.asset(
                                                 "assets/images/stevn_4.jpg",
-                                                width: 150,
-                                                height: 150,
-                                                fit: BoxFit.contain,
-                                              )),
-                                          InkWell(
-                                              onTap: () {
-                                                ImageViewer().show(context,
-                                                    image:
-                                                        "assets/images/stevn_5.jpg");
-                                              },
-                                              child: Image.asset(
-                                                "assets/images/stevn_5.jpg",
-                                                width: 150,
-                                                height: 150,
+                                                width: 200,
+                                                height: 200,
                                                 fit: BoxFit.contain,
                                               )),
                                         ],
@@ -605,17 +737,213 @@ class HomeScreen extends StatelessWidget {
                                                 color: Colors.white,
                                                 fontSize: 40),
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 80.0, right: 80, top: 20),
-                                            child: Text(
-                                              "stoven_script".tr(),
-                                              maxLines: 20,
-                                              textAlign: TextAlign.justify,
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 25),
-                                            ),
+                                          Text(
+                                            "stoven_script".tr(),
+                                            maxLines: 20,
+                                            textAlign: TextAlign.justify,
+                                            style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 25),
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "ستانلس ستيل كامل",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "مزود بمروحتين",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "ومفتاح لكل من شعلتي الشوايه والفرن",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "تايمر اشعال ذاتي شوايه",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "لمبه إضاءه بالفرن",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                " الزجاج الحراري",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "فرن اينملد ضد صدا",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "الغاز الطبيعي وغاز البروبان",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "عجل للحركه",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_rounded,
+                                                color: Colors.white,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "صنع بإيدي مصريه.",
+                                                maxLines: 14,
+                                                textAlign: TextAlign.justify,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
@@ -627,6 +955,201 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              width: screenWidth,
+                              padding: const EdgeInsets.all(30),
+                              color: Colors.white,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_1.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_1.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_2.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_2.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_3.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_3.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_4.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_4.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_5.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_5.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_6.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_6.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_7.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_7.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_8.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_8.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_9.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_9.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          ImageViewer().show(context,
+                                              image:
+                                              "assets/images/s_10.jpeg");
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Image.asset(
+                                            "assets/images/s_10.jpeg" ,
+                                            width: screenWidth / 2,
+                                            height: screenWidth / 2,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+
                             Container(
                               width: screenWidth,
                               color: Colors.white,
@@ -649,7 +1172,93 @@ class HomeScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       FadeImage(
-                                        title: "Stand Motor (S01)".tr(),
+                                        content: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Stand Motor (S01)".tr(),
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 25),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "لفة الموتور بالكامل من النحاس",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 14),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "جسم الموتور من الألومنيوم",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                    child: Text(
+                                                  "سرعة للموتور:1400 دورة في الدقيقة ب3 سرعات مختلفة",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ))
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "طاقته الكهربائية: تيار متردد 200فولت ــ50 هرتز",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "الطاقة القصوي للموتور تصل إلى 70 وات",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                         assetImageUrl:
                                             "assets/images/stand_motor_1.png",
                                       ),
@@ -657,7 +1266,94 @@ class HomeScreen extends StatelessWidget {
                                         width: 10,
                                       ),
                                       FadeImage(
-                                        title: "Hood Motor (H01)".tr(),
+                                        content: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Hood Motor (H01)".tr(),
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 25),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "سرعة المروحة: ثلاث سرعات مختلفة",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 14),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "نظام الفلتر: فلتر معدني",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                    child: Text(
+                                                  "معدل تدفق الهواء: 757 مترًا مكعبًا لكل ساعة",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ))
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "قوة الشفط: 400 متر مكعب/ساعة",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                    child: Text(
+                                                  "لو فلتر بهيكل ألومونيوم يمكنك غسله في غسالة الأطباق",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ))
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                         assetImageUrl:
                                             "assets/images/hood_motor_1.png",
                                       ),
@@ -665,7 +1361,81 @@ class HomeScreen extends StatelessWidget {
                                         width: 10,
                                       ),
                                       FadeImage(
-                                        title: "Ceiling Motor(C01)".tr(),
+                                        // title: "Ceiling Motor(C01)".tr(),
+                                        content: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Ceiling Motor(C01)".tr(),
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 25),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "لفة الموتور بالكامل من النحاس",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 14),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "جسم الموتور من الألومنيوم",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                    child: Text(
+                                                  "تصميمات مختلفة للمحرك وعلبة التروس ",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ))
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "التشغيل السلس والفعالية",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+
                                         assetImageUrl:
                                             "assets/images/ceiling_motor_1.png",
                                       ),
@@ -673,9 +1443,225 @@ class HomeScreen extends StatelessWidget {
                                         width: 10,
                                       ),
                                       FadeImage(
-                                        title: "Blinder Motor (B02)".tr(),
+                                        // title: "Blinder Motor (B02)".tr(),
+                                        content: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Blinder Motor (B02)".tr(),
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 25),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "حجم الموتور: 90 سنتيمترًا",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 14),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "سرعة المروحة: ثلاث سرعات مختلفة",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                    child: Text(
+                                                  "معدل تدفق الهواء: 757 مترًا مكعبًا لكل ساعة",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ))
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "MM التطوير التنظيمي للجزء الثابت: 70",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "قبضان العاكس: 24",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Text(
+                                                  "(Q40,2) Q39,5: قوة الدوران",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )
+                                              ],
+                                            ),
+                                            const Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.circle_rounded,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                    child: Text(
+                                                  "فتحة الدوران: 12 فتحة",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ))
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+
                                         assetImageUrl:
                                             "assets/images/blinder_motor_1.png",
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_1.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_2.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_3.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_4.jpeg",
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_5.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_6.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_7.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_8.jpeg",
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_9.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_10.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_11.jpeg",
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      FadeImage(
+                                        assetImageUrl:
+                                            "assets/images/engine_12.jpeg",
                                       ),
                                     ],
                                   ),
@@ -762,25 +1748,25 @@ class HomeScreen extends StatelessWidget {
                                                       height: 10,
                                                     ),
                                                     const Text(
-                                                      "971543557055"+"+",
+                                                      "971543557055" + "+",
                                                       style: TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 15),
                                                     ),
                                                     const Text(
-                                                     "971543557055"+ "+",
+                                                      "971543557055" + "+",
                                                       style: TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 15),
                                                     ),
                                                     const Text(
-                                                      "971583883825"+"+",
+                                                      "971583883825" + "+",
                                                       style: TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 15),
                                                     ),
                                                     const Text(
-                                                      "97144487033"+"+",
+                                                      "97144487033" + "+",
                                                       style: TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 15),

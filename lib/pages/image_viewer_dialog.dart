@@ -2,11 +2,25 @@ import 'package:alfatemia_engines/config/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../config/navigator.dart';
+
 class ImageViewer {
   void show(BuildContext context, {String? image}) {
     showDialog(
         context: context,
-        builder: (context) => Scaffold(
+        builder: (context) {
+          back() {
+            navigator(
+              context: context,
+              isBack: true,
+            );
+          }
+          return  WillPopScope(
+            onWillPop: () async {
+              back();
+              return false;
+            },
+            child: Scaffold(
               backgroundColor: Colors.transparent,
               body: Center(
                 child: Container(
@@ -31,6 +45,8 @@ class ImageViewer {
                   ),
                 ),
               ),
-            ));
+            ),
+          );
+        });
   }
 }

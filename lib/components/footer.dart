@@ -76,7 +76,7 @@ class Footer extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 16,
                   ),),
-                  Text("20101 3661834"+"+",style: const TextStyle(
+                  Text("201013661834"+"+",style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),
@@ -244,7 +244,7 @@ class Footer extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 16,
                   ),),
-                  Text("20101 3661834"+"+",style: const TextStyle(
+                  Text("201013661834"+"+",style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                   ),),

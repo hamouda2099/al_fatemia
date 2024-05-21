@@ -42,16 +42,13 @@ class HomeMobile extends StatelessWidget {
             controller: scrollController,
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: CustomAppBar(),
-                ),
+                SizedBox(height: screenHeight/10,),
                 Container(
                   width: screenWidth,
                   padding: const EdgeInsets.only(left: 30, right: 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         "Al-Fatemia Engines".tr(),
@@ -128,8 +125,13 @@ class HomeMobile extends StatelessWidget {
                 ),
                 Container(
                   width: screenWidth,
-                  color: Colors.white,
                   padding: const EdgeInsets.all(30),
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      image:DecorationImage(
+                          fit: BoxFit.fitHeight,
+                          image: AssetImage("assets/images/frame.jpg"))
+                  ),
                   child: Column(
                     children: [
                       const SizedBox(
@@ -144,7 +146,7 @@ class HomeMobile extends StatelessWidget {
                               Text(
                                 "The Future with Al-Fatemia".tr(),
                                 style: const TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16),
                               ),
@@ -154,7 +156,7 @@ class HomeMobile extends StatelessWidget {
                               Text(
                                 "Your Trusted Supplier for Engines".tr(),
                                 style: const TextStyle(
-                                    color: kPrimaryColor, fontSize: 20),
+                                    color: Colors.white, fontSize: 20),
                               ),
                             ],
                           ),
@@ -183,6 +185,41 @@ class HomeMobile extends StatelessWidget {
                         children: [
                           InkWell(
                             onTap:(){
+                              playVideoFromUrl(context,url: "https://www.youtube.com/embed/6GmFGkr5UJE");
+                            },
+                            child: Container(
+                              width: screenWidth/1.2,
+                              height: screenWidth/1.2,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage("assets/images/video_0.png"))
+                              ),
+                              child: Container(
+                                color: Colors.black.withOpacity(0.4),
+                                width: screenWidth/1.2,
+                                height: screenWidth/1.2,
+                                child: const Icon(Icons.play_arrow,color: kPrimaryColor,
+                                  size: 50,),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 10,),
+                          SizedBox(
+                            width: screenWidth/1.2,
+                            child: const Text(
+                                "الفاطمية للمحركات | بايدي مصرية ١٠٠٪"
+                              ,maxLines: 3, style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold
+                            ),),
+                          ),
+
+
+                          const SizedBox(height: 20,),
+                          InkWell(
+                            onTap:(){
                               playVideoFromUrl(context,url: "https://www.youtube.com/embed/NbXLKWtDlSg");
                             },
                             child: Container(
@@ -206,11 +243,13 @@ class HomeMobile extends StatelessWidget {
                           SizedBox(
                             width: screenWidth/1.2,
                             child: const Text("شوف دلوقت موتور الفاطمية المصري بكل مكوناته مع التفاصيل بضمان الجودة ودقة الإتقان",maxLines: 3, style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold
                             ),),
                           ),
+
+
                           const SizedBox(height: 20,),
                           InkWell(
                             onTap:(){
@@ -237,7 +276,7 @@ class HomeMobile extends StatelessWidget {
                           SizedBox(
                             width: screenWidth/1.2,
                             child: const Text("كفاءة تصنيع موتور المروحة المصري بأقوى الخامات بيور 100%",maxLines: 3, style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold
                             ),),
@@ -270,7 +309,7 @@ class HomeMobile extends StatelessWidget {
                       SizedBox(
                         width: screenWidth/1.2,
                         child: const Text("لأول مرة في مصر موتور مروحة صناعة مصرية 100% بخط الإنتاج كامل وعمالة محلية",maxLines: 3, style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 14,
                             fontWeight: FontWeight.bold
                         ),),
@@ -302,7 +341,7 @@ class HomeMobile extends StatelessWidget {
                       SizedBox(
                         width: screenWidth/1.2,
                         child: const Text("مصنع الفاطمية للمحركات مصنع الموتور المصري",maxLines: 3, style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 14,
                             fontWeight: FontWeight.bold
                         ),),
@@ -357,6 +396,68 @@ class HomeMobile extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(height: 10,),
+                        const Row(
+                          children: [
+                            Icon(Icons.circle_rounded,color: Colors.white,size: 10,),
+                            SizedBox(width: 5,),
+                            Text(
+                              "ماتور مروحة سقف و استاند بكل الانواع",
+                              maxLines: 10,
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Row(
+                          children: [
+                            Icon(Icons.circle_rounded,color: Colors.white,size: 10,),
+                            SizedBox(width: 5,),
+                            Text(
+                              "ماتور شفاط و غيره من المنتجات",
+                              maxLines: 10,
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Row(
+                          children: [
+                            Icon(Icons.circle_rounded,color: Colors.white,size: 10,),
+                            SizedBox(width: 5,),
+                            Text(
+                              "مواتير الخلاطات بكل أنواعها",
+                              maxLines: 10,
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Row(
+                          children: [
+                            Icon(Icons.circle_rounded,color: Colors.white,size: 10,),
+                            SizedBox(width: 5,),
+                            Text(
+                              "مؤخراً صناعة بتوجاز Stoven",
+                              maxLines: 10,
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+
                       ],
                     ),
                   ),
@@ -378,7 +479,7 @@ class HomeMobile extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       Container(
                         width: screenWidth,
                         color: Colors.white,
@@ -398,16 +499,24 @@ class HomeMobile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
                         width: screenWidth,
+                        decoration: const BoxDecoration(
+                            color: kPrimaryColor,
+                            image: DecorationImage(
+                                fit: BoxFit.contain,
+                                opacity: 0.5,
+                                repeat: ImageRepeat.repeat,
+                                image: AssetImage("assets/images/pattern.png"))
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
                           children: List.generate(20, (index) => Padding(
-                            padding: const EdgeInsets.only(top: 10.0,bottom: 10),
+                            padding: const EdgeInsets.all(30),
                             child: InkWell(
                               onTap: (){
                                 ImageViewer().show(context,image: "assets/images/post_${index + 1}.jpg");
@@ -452,7 +561,7 @@ class HomeMobile extends StatelessWidget {
                                         image: AssetImage("assets/images/stevn_1.jpg"))
                                 ),
                               ),
-                              SizedBox(height: 10,),
+                              const SizedBox(height: 10,),
                               SizedBox(
                                 width: screenWidth/1.2,
                                 child: Row(
@@ -481,12 +590,13 @@ class HomeMobile extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 10,),
+                              const SizedBox(height: 10,),
 
                               SizedBox(
                                 width: screenWidth/1.2,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
@@ -494,22 +604,148 @@ class HomeMobile extends StatelessWidget {
                                       style: const TextStyle(
                                           color: Colors.white, fontSize: 18),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20.0, right: 20, top: 10),
-                                      child: Text(
-                                        "stoven_script".tr(),
-                                        maxLines: 14,
-                                        textAlign: TextAlign.justify,
-                                        style: const TextStyle(
-                                            color: Colors.white, fontSize: 14),
-                                      ),
+                                    Text(
+                                      "stoven_script".tr(),
+                                      maxLines: 14,
+                                      textAlign: TextAlign.justify,
+                                      style: const TextStyle(
+                                          color: Colors.white, fontSize: 14),
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "ستانلس ستيل كامل",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "مزود بمروحتين",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "ومفتاح لكل من شعلتي الشوايه والفرن",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "تايمر اشعال ذاتي شوايه",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "لمبه إضاءه بالفرن",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          " الزجاج الحراري",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "فرن اينملد ضد صدا",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "الغاز الطبيعي وغاز البروبان",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "عجل للحركه",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          "صنع بإيدي مصريه.",
+                                          maxLines: 14,
+                                          textAlign: TextAlign.justify,
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 14),
+                                        ),
+                                      ],
                                     ),
 
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 50,),
+                              const SizedBox(height: 50,),
 
                             ],
                           ),
@@ -518,6 +754,202 @@ class HomeMobile extends StatelessWidget {
                     ),
                   ),
                 ),
+                Container(
+                  width: screenWidth,
+                  padding: const EdgeInsets.all(30),
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_1.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_1.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_2.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_2.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_3.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_3.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_4.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_4.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_5.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_5.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_6.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_6.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_7.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_7.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_8.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_8.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_9.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_9.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              ImageViewer().show(context,
+                                  image:
+                                  "assets/images/s_10.jpeg");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                "assets/images/s_10.jpeg" ,
+                                width: screenWidth / 2.5,
+                                height: screenWidth / 2.5,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+
                 Container(
                   width: screenWidth,
                   color: Colors.white,
@@ -540,17 +972,231 @@ class HomeMobile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FadeImage(
-                            title: "Stand Motor (S01)".tr(),
+                            content: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Stand Motor (S01)".tr(),
+                                  style: const TextStyle(
+                                      color: Colors.white,fontSize: 14),
+                                ),
+                                const SizedBox(height: 10,),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("لفة الموتور بالكامل من النحاس",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("جسم الموتور من الألومنيوم",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("سرعة للموتور:1400 دورة في الدقيقة ب3 سرعات مختلفة",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("طاقته الكهربائية: تيار متردد 200فولت ــ50 هرتز",style: TextStyle(color: Colors.white,fontSize: 12,),))
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("الطاقة القصوي للموتور تصل إلى 70 وات",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                              ],
+                            ),
                             assetImageUrl:
                             "assets/images/stand_motor_1.png",
                           ),
+
                           const SizedBox(
                             width: 10,
                           ),
                           FadeImage(
-                            title: "Hood Motor (H01)".tr(),
+                            content: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Hood Motor (H01)".tr(),
+                                  style: const TextStyle(
+                                      color: Colors.white,fontSize: 14),
+                                ),
+                                const SizedBox(height: 10,),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("سرعة المروحة: ثلاث سرعات مختلفة",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("نظام الفلتر: فلتر معدني",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("معدل تدفق الهواء: 757 مترًا مكعبًا لكل ساعة",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("قوة الشفط: 400 متر مكعب/ساعة",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("لو فلتر بهيكل ألومونيوم يمكنك غسله في غسالة الأطباق",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                              ],
+                            ),
+
                             assetImageUrl:
                             "assets/images/hood_motor_1.png",
+                          ),
+
+
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FadeImage(
+                            // title: "Ceiling Motor(C01)".tr(),
+                            content: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Ceiling Motor(C01)".tr(),
+                                  style: const TextStyle(
+                                      color: Colors.white,fontSize: 14),
+                                ),
+                                const SizedBox(height: 10,),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("لفة الموتور بالكامل من النحاس",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("جسم الموتور من الألومنيوم",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("تصميمات مختلفة للمحرك وعلبة التروس ",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("التشغيل السلس والفعالية",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                              ],
+                            ),
+
+                            assetImageUrl:
+                            "assets/images/ceiling_motor_1.png",
+                          ),
+
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          FadeImage(
+                            // title: "Blinder Motor (B02)".tr(),
+                            content: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Blinder Motor (B02)".tr(),
+                                  style: const TextStyle(
+                                      color: Colors.white,fontSize: 14),
+                                ),
+                                const SizedBox(height: 10,),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("حجم الموتور: 90 سنتيمترًا",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("سرعة المروحة: ثلاث سرعات مختلفة",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("معدل تدفق الهواء: 757 مترًا مكعبًا لكل ساعة",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("MM التطوير التنظيمي للجزء الثابت: 70",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("قبضان العاكس: 24",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Text("(Q40,2) Q39,5: قوة الدوران",style: TextStyle(color: Colors.white,fontSize: 12),)
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(Icons.circle_rounded,color: Colors.white,size: 15,),
+                                    SizedBox(width:10),
+                                    Expanded(child: Text("فتحة الدوران: 12 فتحة",style: TextStyle(color: Colors.white,fontSize: 12),))
+                                  ],
+                                ),
+                              ],
+                            ),
+
+                            assetImageUrl:
+                            "assets/images/blinder_motor_1.png",
                           ),
 
                         ],
@@ -558,22 +1204,109 @@ class HomeMobile extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           FadeImage(
-                            title: "Ceiling Motor(C01)".tr(),
                             assetImageUrl:
-                            "assets/images/ceiling_motor_1.png",
+                            "assets/images/engine_1.jpeg",
                           ),
                           const SizedBox(
                             width: 10,
                           ),
                           FadeImage(
-                            title: "Blinder Motor (B02)".tr(),
                             assetImageUrl:
-                            "assets/images/blinder_motor_1.png",
+                            "assets/images/engine_2.jpeg",
                           ),
                         ],
                       ),
+                      const SizedBox(height: 10,),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_3.jpeg",
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_4.jpeg",
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_5.jpeg",
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_6.jpeg",
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_7.jpeg",
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_8.jpeg",
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_9.jpeg",
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_10.jpeg",
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_11.jpeg",
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          FadeImage(
+                            assetImageUrl:
+                            "assets/images/engine_12.jpeg",
+                          ),
+                        ],
+                      ),
+
                       const SizedBox(
                         height: 50,
                       ),
@@ -684,7 +1417,7 @@ class HomeMobile extends StatelessWidget {
                                         );
                                       },
                                       child: Image.asset("assets/images/facebook.png",width: 20,height: 20,)),
-                                  SizedBox(width: 10,),
+                                  const SizedBox(width: 10,),
                                   InkWell(
                                       onTap: () async {
                                         await launchUrl(
@@ -692,7 +1425,7 @@ class HomeMobile extends StatelessWidget {
                                         );
                                       },
                                       child: Image.asset("assets/images/instagram.png",width: 20,height: 20,)),
-                                  SizedBox(width: 10,),
+                                  const SizedBox(width: 10,),
 
                                   InkWell(
                                       onTap: () async {
